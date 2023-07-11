@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>profiles.views &mdash; Fitness Django Project Initial Release documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Fitness Django Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/modules.html">fitness_project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/accounts.html">accounts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/core_app.html">core_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/foods.html">foods package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules/profiles.html">profiles package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fitness Django Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">profiles.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for profiles.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ReadOnlyUserInfoForm</span><span class="p">,</span>
+                    <span class="n">EditableUserInfoForm</span><span class="p">,</span>
+                    <span class="n">ReadOnlyMacroDataForm</span><span class="p">,</span>
+                    <span class="n">EditableMacroDataForm</span><span class="p">,</span>
+                    <span class="n">PictureUpdateForm</span><span class="p">,</span>
+                    <span class="n">ProfileListForm</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">foods.models</span> <span class="kn">import</span> <span class="n">Food</span>
+<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">ProfileList</span><span class="p">,</span> <span class="n">ProfileFood</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">JsonResponse</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="n">Paginator</span>
+
+
+<div class="viewcode-block" id="profile"><a class="viewcode-back" href="../../source/modules/profiles.html#profiles.views.profile">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display and update user information, profile picture and macro data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: The HTTP response object.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        User information and macro data can be displayed in either read-only </span>
+<span class="sd">        or editable mode based on the edit button&#39;s interaction.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Functionality based on the flag, defaults to False if not set</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;editable&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># User can interact with two buttons</span>
+        <span class="k">if</span> <span class="s1">&#39;picture_button&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>  <span class="c1"># Change profile picture</span>
+
+            <span class="c1"># Create a PictureUpdateForm with the new picture</span>
+            <span class="n">picture_update_form</span> <span class="o">=</span> <span class="n">PictureUpdateForm</span><span class="p">(</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+            <span class="c1"># Check if the form is valid and save it</span>
+            <span class="k">if</span> <span class="n">picture_update_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                <span class="n">picture_update_form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                <span class="c1"># Create readonly ReadOnlyUserInfoForm and ReadOnlyMacroDataForm</span>
+                <span class="n">user_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyUserInfoForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">profile_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyMacroDataForm</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+                <span class="c1"># Set the editable flag to False in order to show the edit button</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;editable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="s1">&#39;info_button&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>  <span class="c1"># User information and macros data</span>
+
+            <span class="c1"># If the button&#39;s value is &#39;edit&#39; when clicked, create editable instances</span>
+            <span class="c1"># to display them</span>
+            <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;info_button&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;edit&#39;</span><span class="p">:</span>
+                <span class="n">user_update_form</span> <span class="o">=</span> <span class="n">EditableUserInfoForm</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">profile_update_form</span> <span class="o">=</span> <span class="n">EditableMacroDataForm</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+                <span class="n">picture_update_form</span> <span class="o">=</span> <span class="n">PictureUpdateForm</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+                <span class="c1"># Set the editable flag to True</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;editable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;info_button&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;save&#39;</span><span class="p">:</span>
+                <span class="c1"># Create instances with the new user&#39;s info</span>
+                <span class="n">user_update_form</span> <span class="o">=</span> <span class="n">EditableUserInfoForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span>
+                                                        <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">profile_update_form</span> <span class="o">=</span> <span class="n">EditableMacroDataForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span>
+                                                            <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">user_update_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">profile_update_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+                    <span class="n">user_update_form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                    <span class="n">profile_update_form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                    <span class="c1"># Set the flag to False in order to show the edit button</span>
+                    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;editable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+                    <span class="c1"># Create readonly instances with the new user&#39;s info</span>
+                    <span class="n">user_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyUserInfoForm</span><span class="p">(</span>
+                        <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                    <span class="n">profile_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyMacroDataForm</span><span class="p">(</span>
+                        <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+                    <span class="c1"># Create PIctureUpdateForm in order to display the template correctly</span>
+                    <span class="n">picture_update_form</span> <span class="o">=</span> <span class="n">PictureUpdateForm</span><span class="p">(</span>
+                        <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+
+                    <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
+
+    <span class="c1"># If the method is GET, create readonly instances</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Set the editable flag to False</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;editable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">user_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyUserInfoForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">profile_update_form</span> <span class="o">=</span> <span class="n">ReadOnlyMacroDataForm</span><span class="p">(</span>
+            <span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+        <span class="n">picture_update_form</span> <span class="o">=</span> <span class="n">PictureUpdateForm</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">)</span>
+
+    <span class="c1"># Pass the correct forms to the context</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;profile&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span><span class="p">,</span>
+               <span class="s1">&#39;user_update_form&#39;</span><span class="p">:</span> <span class="n">user_update_form</span><span class="p">,</span>
+               <span class="s1">&#39;profile_update_form&#39;</span><span class="p">:</span> <span class="n">profile_update_form</span><span class="p">,</span>
+               <span class="s1">&#39;picture_update_form&#39;</span><span class="p">:</span> <span class="n">picture_update_form</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/user_profile.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="lists"><a class="viewcode-back" href="../../source/modules/profiles.html#profiles.views.lists">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">lists</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display user food lists.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: The HTTP response object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If the user removes a list</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="c1"># Get the id of the food by getting the remove button value</span>
+        <span class="n">list_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+        <span class="c1"># Get the ProfileFood object</span>
+        <span class="n">profile_food</span> <span class="o">=</span> <span class="n">ProfileList</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">list_id</span><span class="p">)</span>
+        <span class="n">profile_food</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;user-lists&#39;</span><span class="p">)</span>
+
+    <span class="n">current_user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span>
+
+    <span class="c1"># Order the lists from newest to oldest</span>
+    <span class="n">lists</span> <span class="o">=</span> <span class="n">ProfileList</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">author</span><span class="o">=</span><span class="n">current_user</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Paginator</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">page_number</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;page&quot;</span><span class="p">)</span>
+    <span class="n">page_obj</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_number</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;my lists&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;page_obj&#39;</span><span class="p">:</span> <span class="n">page_obj</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/user_lists.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_list"><a class="viewcode-back" href="../../source/modules/profiles.html#profiles.views.create_list">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">create_list</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a new user food list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: The HTTP response object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">ProfileListForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># Don&#39;t save the list to the database yet</span>
+            <span class="n">new_list</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="c1"># Set the author</span>
+            <span class="n">new_list</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">profile</span>
+            <span class="n">new_list</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="c1"># Get the id of the new list</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">new_list</span><span class="o">.</span><span class="n">id</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">list_id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">ProfileListForm</span><span class="p">()</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;create list&#39;</span><span class="p">,</span> <span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/create_list.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="show_list"><a class="viewcode-back" href="../../source/modules/profiles.html#profiles.views.show_list">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">show_list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">list_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (HttpRequest): The HTTP request object.</span>
+<span class="sd">        list_id (int): The id of the selected list.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: The HTTP response object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If the user removes a food from the list</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="c1"># Get the id of the food by getting the remove button value</span>
+        <span class="n">food_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+        <span class="c1"># Get the ProfileFood object</span>
+        <span class="n">profile_food</span> <span class="o">=</span> <span class="n">ProfileFood</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">food_id</span><span class="p">)</span>
+        <span class="n">profile_food</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">list_id</span><span class="o">=</span><span class="n">list_id</span><span class="p">)</span>
+
+    <span class="n">current_list</span> <span class="o">=</span> <span class="n">ProfileList</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">list_id</span><span class="p">)</span>
+
+    <span class="c1"># This allows adding foods to the current list</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;current_list_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_list</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="c1"># Retrieve all the foods that belong to the current list.</span>
+    <span class="n">selected_foods</span> <span class="o">=</span> <span class="n">current_list</span><span class="o">.</span><span class="n">selected_foods</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;current_list&#39;</span><span class="p">:</span> <span class="n">current_list</span><span class="p">,</span>
+               <span class="s1">&#39;selected_foods&#39;</span><span class="p">:</span> <span class="n">selected_foods</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;profiles/edit_list.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_food"><a class="viewcode-back" href="../../source/modules/profiles.html#profiles.views.add_food">[docs]</a><span class="k">def</span> <span class="nf">add_food</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a food to the list that is being displayed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        request (HttpRequest): The HTTP request object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        JsonResponse: A JSON response object.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The JSON response object is used in conjunction with the addToList</span>
+<span class="sd">        function in the javascript file to redirect the user to the updated list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Decode data into Python object and get the</span>
+    <span class="c1"># respective object</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">food_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="n">food</span> <span class="o">=</span> <span class="n">Food</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">food_id</span><span class="p">)</span>
+
+    <span class="c1"># Retrive the current list</span>
+    <span class="n">current_list_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;current_list_id&#39;</span><span class="p">)</span>
+    <span class="n">current_list</span> <span class="o">=</span> <span class="n">ProfileList</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">current_list_id</span><span class="p">)</span>
+
+    <span class="c1"># Add the food to the new list</span>
+    <span class="n">food_added</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">ProfileFood</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+        <span class="n">current_list</span><span class="o">=</span><span class="n">current_list</span><span class="p">,</span> <span class="n">food</span><span class="o">=</span><span class="n">food</span><span class="p">)</span>
+
+    <span class="c1"># Increase the quantity by one</span>
+    <span class="n">food_added</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">food_added</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">JsonResponse</span><span class="p">({</span><span class="s1">&#39;list_id&#39;</span><span class="p">:</span> <span class="n">current_list_id</span><span class="p">})</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, David Aragon Rocha.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

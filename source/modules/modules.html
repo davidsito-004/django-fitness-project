@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fitness_project &mdash; Fitness Django Project Initial Release documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="accounts package" href="accounts.html" />
+    <link rel="prev" title="Welcome to Fitness Django Project’s documentation!" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Fitness Django Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fitness_project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html">foods package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foods.html">foods package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fitness Django Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">fitness_project</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com//davidsito004/django-fitness-project/blob/maindocs/source/modules/modules.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fitness-project">
+<h1>fitness_project<a class="headerlink" href="#fitness-project" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">accounts package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts.migrations.html">accounts.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.migrations.html#module-accounts.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.admin">accounts.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.apps">accounts.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.apps.AccountsConfig"><code class="docutils literal notranslate"><span class="pre">AccountsConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.apps.AccountsConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">AccountsConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.apps.AccountsConfig.name"><code class="docutils literal notranslate"><span class="pre">AccountsConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.forms">accounts.forms module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.forms.CustomLoginForm"><code class="docutils literal notranslate"><span class="pre">CustomLoginForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.CustomLoginForm.base_fields"><code class="docutils literal notranslate"><span class="pre">CustomLoginForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.CustomLoginForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">CustomLoginForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.CustomLoginForm.media"><code class="docutils literal notranslate"><span class="pre">CustomLoginForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.forms.RegisterForm"><code class="docutils literal notranslate"><span class="pre">RegisterForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.RegisterForm.Meta"><code class="docutils literal notranslate"><span class="pre">RegisterForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.RegisterForm.base_fields"><code class="docutils literal notranslate"><span class="pre">RegisterForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.RegisterForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">RegisterForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.forms.RegisterForm.media"><code class="docutils literal notranslate"><span class="pre">RegisterForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.models">accounts.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.tests">accounts.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.urls">accounts.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts.views">accounts.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.views.CustomLoginView"><code class="docutils literal notranslate"><span class="pre">CustomLoginView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.views.CustomLoginView.authentication_form"><code class="docutils literal notranslate"><span class="pre">CustomLoginView.authentication_form</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.views.CustomLoginView.extra_context"><code class="docutils literal notranslate"><span class="pre">CustomLoginView.extra_context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.views.CustomLoginView.get"><code class="docutils literal notranslate"><span class="pre">CustomLoginView.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.views.CustomLogoutView"><code class="docutils literal notranslate"><span class="pre">CustomLogoutView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accounts.html#accounts.views.CustomLogoutView.extra_context"><code class="docutils literal notranslate"><span class="pre">CustomLogoutView.extra_context</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html#accounts.views.register_user"><code class="docutils literal notranslate"><span class="pre">register_user()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#module-accounts">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core_app.html">core_app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core_app.migrations.html">core_app.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core_app.migrations.html#module-core_app.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.admin">core_app.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.apps">core_app.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core_app.html#core_app.apps.CoreAppConfig"><code class="docutils literal notranslate"><span class="pre">CoreAppConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core_app.html#core_app.apps.CoreAppConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">CoreAppConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core_app.html#core_app.apps.CoreAppConfig.name"><code class="docutils literal notranslate"><span class="pre">CoreAppConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.models">core_app.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.tests">core_app.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.urls">core_app.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app.views">core_app.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core_app.html#core_app.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html#module-core_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fitness_project.html">fitness_project package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#module-fitness_project.asgi">fitness_project.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#module-fitness_project.settings">fitness_project.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#module-fitness_project.urls">fitness_project.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#module-fitness_project.wsgi">fitness_project.wsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html#module-fitness_project">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="foods.html">foods package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html">foods.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0001_initial">foods.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0002_alter_category_options_category_created_at_and_more">foods.migrations.0002_alter_category_options_category_created_at_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more">foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0004_rename_protein_food_proteins">foods.migrations.0004_rename_protein_food_proteins module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#module-foods.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.admin">foods.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.apps">foods.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.apps.FoodsConfig"><code class="docutils literal notranslate"><span class="pre">FoodsConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.apps.FoodsConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">FoodsConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.apps.FoodsConfig.name"><code class="docutils literal notranslate"><span class="pre">FoodsConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.context_processors">foods.context_processors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.context_processors.get_categories"><code class="docutils literal notranslate"><span class="pre">get_categories()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.context_processors.get_foods_pages"><code class="docutils literal notranslate"><span class="pre">get_foods_pages()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.models">foods.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.models.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Category.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Category.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.created_at"><code class="docutils literal notranslate"><span class="pre">Category.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.food_set"><code class="docutils literal notranslate"><span class="pre">Category.food_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.id"><code class="docutils literal notranslate"><span class="pre">Category.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.objects"><code class="docutils literal notranslate"><span class="pre">Category.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Category.title"><code class="docutils literal notranslate"><span class="pre">Category.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.models.Food"><code class="docutils literal notranslate"><span class="pre">Food</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Food.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Food.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.calories"><code class="docutils literal notranslate"><span class="pre">Food.calories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.carbs"><code class="docutils literal notranslate"><span class="pre">Food.carbs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.categories"><code class="docutils literal notranslate"><span class="pre">Food.categories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.created_at"><code class="docutils literal notranslate"><span class="pre">Food.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.description"><code class="docutils literal notranslate"><span class="pre">Food.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.fat"><code class="docutils literal notranslate"><span class="pre">Food.fat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.foods"><code class="docutils literal notranslate"><span class="pre">Food.foods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Food.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Food.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Food.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Food.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.id"><code class="docutils literal notranslate"><span class="pre">Food.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.image"><code class="docutils literal notranslate"><span class="pre">Food.image</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.name"><code class="docutils literal notranslate"><span class="pre">Food.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.objects"><code class="docutils literal notranslate"><span class="pre">Food.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.proteins"><code class="docutils literal notranslate"><span class="pre">Food.proteins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.save"><code class="docutils literal notranslate"><span class="pre">Food.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.models.Food.updated_at"><code class="docutils literal notranslate"><span class="pre">Food.updated_at</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.tests">foods.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.urls">foods.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods.views">foods.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.views.SearchFoodView"><code class="docutils literal notranslate"><span class="pre">SearchFoodView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.context_object_name"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.context_object_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.get_context_data"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.get_context_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.get_queryset"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.model"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.paginate_by"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.paginate_by</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.html#foods.views.SearchFoodView.template_name"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.template_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.views.show_by_category"><code class="docutils literal notranslate"><span class="pre">show_by_category()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="foods.html#foods.views.show_foods"><code class="docutils literal notranslate"><span class="pre">show_foods()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html#module-foods">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#manage.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiles.html">profiles package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html">profiles.migrations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0001_initial">profiles.migrations.0001_initial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more">profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more">profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more">profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0005_profilefood_quantity">profiles.migrations.0005_profilefood_quantity module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.templatetags.html">profiles.templatetags package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.templatetags.html#module-profiles.templatetags.macro_tags">profiles.templatetags.macro_tags module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.templatetags.html#module-profiles.templatetags">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.admin">profiles.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.apps">profiles.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.apps.ProfilesConfig"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.apps.ProfilesConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.apps.ProfilesConfig.name"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.apps.ProfilesConfig.ready"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.ready()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.forms">profiles.forms module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.CustomClearableFileInput"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.CustomClearableFileInput.media"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput.media</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.CustomClearableFileInput.render"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput.render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.EditableMacroDataForm"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableMacroDataForm.base_fields"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableMacroDataForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableMacroDataForm.media"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.EditableUserInfoForm"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableUserInfoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableUserInfoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.EditableUserInfoForm.media"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.PictureUpdateForm"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.PictureUpdateForm.Meta"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.PictureUpdateForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.PictureUpdateForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.PictureUpdateForm.media"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.ProfileListForm"><code class="docutils literal notranslate"><span class="pre">ProfileListForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ProfileListForm.Meta"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ProfileListForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ProfileListForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ProfileListForm.media"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyMacroDataForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyMacroDataForm.Meta"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyMacroDataForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyMacroDataForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyMacroDataForm.media"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyUserInfoForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyUserInfoForm.Meta"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyUserInfoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyUserInfoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.forms.ReadOnlyUserInfoForm.media"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.models">profiles.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.models.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Profile.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Profile.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.calorie_goal"><code class="docutils literal notranslate"><span class="pre">Profile.calorie_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.carb_goal"><code class="docutils literal notranslate"><span class="pre">Profile.carb_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.fat_goal"><code class="docutils literal notranslate"><span class="pre">Profile.fat_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.id"><code class="docutils literal notranslate"><span class="pre">Profile.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.image"><code class="docutils literal notranslate"><span class="pre">Profile.image</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.objects"><code class="docutils literal notranslate"><span class="pre">Profile.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.profilelist_set"><code class="docutils literal notranslate"><span class="pre">Profile.profilelist_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.protein_goal"><code class="docutils literal notranslate"><span class="pre">Profile.protein_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.save"><code class="docutils literal notranslate"><span class="pre">Profile.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.user"><code class="docutils literal notranslate"><span class="pre">Profile.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.Profile.user_id"><code class="docutils literal notranslate"><span class="pre">Profile.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood"><code class="docutils literal notranslate"><span class="pre">ProfileFood</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ProfileFood.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ProfileFood.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.current_list"><code class="docutils literal notranslate"><span class="pre">ProfileFood.current_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.current_list_id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.current_list_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.food"><code class="docutils literal notranslate"><span class="pre">ProfileFood.food</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.food_id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.food_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.objects"><code class="docutils literal notranslate"><span class="pre">ProfileFood.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileFood.quantity"><code class="docutils literal notranslate"><span class="pre">ProfileFood.quantity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.models.ProfileList"><code class="docutils literal notranslate"><span class="pre">ProfileList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ProfileList.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ProfileList.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.author"><code class="docutils literal notranslate"><span class="pre">ProfileList.author</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.author_id"><code class="docutils literal notranslate"><span class="pre">ProfileList.author_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.id"><code class="docutils literal notranslate"><span class="pre">ProfileList.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.objects"><code class="docutils literal notranslate"><span class="pre">ProfileList.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.ready"><code class="docutils literal notranslate"><span class="pre">ProfileList.ready</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.selected_foods"><code class="docutils literal notranslate"><span class="pre">ProfileList.selected_foods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.html#profiles.models.ProfileList.title"><code class="docutils literal notranslate"><span class="pre">ProfileList.title</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.signals">profiles.signals module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.signals.create_user_profile"><code class="docutils literal notranslate"><span class="pre">create_user_profile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.tests">profiles.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.urls">profiles.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles.views">profiles.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.views.add_food"><code class="docutils literal notranslate"><span class="pre">add_food()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.views.create_list"><code class="docutils literal notranslate"><span class="pre">create_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.views.lists"><code class="docutils literal notranslate"><span class="pre">lists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.views.profile"><code class="docutils literal notranslate"><span class="pre">profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.html#profiles.views.show_list"><code class="docutils literal notranslate"><span class="pre">show_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html#module-profiles">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Welcome to Fitness Django Project’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="accounts.html" class="btn btn-neutral float-right" title="accounts package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, David Aragon Rocha.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

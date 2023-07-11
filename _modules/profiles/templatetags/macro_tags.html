@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>profiles.templatetags.macro_tags &mdash; Fitness Django Project Initial Release documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fitness Django Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/modules.html">fitness_project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/accounts.html">accounts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/core_app.html">core_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/foods.html">foods package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules/profiles.html">profiles package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fitness Django Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">profiles.templatetags.macro_tags</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for profiles.templatetags.macro_tags</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">template</span>
+<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">ProfileFood</span><span class="p">,</span> <span class="n">ProfileList</span>
+
+<span class="n">register</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">Library</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="total_macro"><a class="viewcode-back" href="../../../source/modules/profiles.templatetags.html#profiles.templatetags.macro_tags.total_macro">[docs]</a><span class="nd">@register</span><span class="o">.</span><span class="n">simple_tag</span>
+<span class="k">def</span> <span class="nf">total_macro</span><span class="p">(</span><span class="n">food_obj</span><span class="p">:</span> <span class="n">ProfileFood</span><span class="p">,</span> <span class="n">macro</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the total macro value per food added to the list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        food_obj (ProfileFood): The food that belongs to the current list.</span>
+<span class="sd">        macro (str): The name of the macro field to be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (bool): The total macro value per food item added.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">food_obj</span><span class="o">.</span><span class="n">food</span><span class="p">,</span> <span class="n">macro</span><span class="p">)</span> <span class="o">*</span> <span class="n">food_obj</span><span class="o">.</span><span class="n">quantity</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="total_list_macro"><a class="viewcode-back" href="../../../source/modules/profiles.templatetags.html#profiles.templatetags.macro_tags.total_list_macro">[docs]</a><span class="nd">@register</span><span class="o">.</span><span class="n">simple_tag</span>
+<span class="k">def</span> <span class="nf">total_list_macro</span><span class="p">(</span><span class="n">list_obj</span><span class="p">:</span> <span class="n">ProfileList</span><span class="p">,</span> <span class="n">macro</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the total macro value in the list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        list_obj (ProfileList): The current list.</span>
+<span class="sd">        macro (str): The name of the macro field to be retrieved.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (bool): The total macro value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">foods</span> <span class="o">=</span> <span class="n">list_obj</span><span class="o">.</span><span class="n">selected_foods</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="c1"># Get the total per food and sum it</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">total_macro</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">macro</span><span class="p">)</span> <span class="k">for</span> <span class="n">food</span> <span class="ow">in</span> <span class="n">foods</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="remaining_macros"><a class="viewcode-back" href="../../../source/modules/profiles.templatetags.html#profiles.templatetags.macro_tags.remaining_macros">[docs]</a><span class="nd">@register</span><span class="o">.</span><span class="n">simple_tag</span>
+<span class="k">def</span> <span class="nf">remaining_macros</span><span class="p">(</span><span class="n">list_obj</span><span class="p">:</span> <span class="n">ProfileList</span><span class="p">,</span> <span class="n">macro</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">p_field</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the remaining total macro values in the list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        list_obj (ProfileList): The current list.</span>
+<span class="sd">        macro (str): The name of the macro field to be retrieved.</span>
+<span class="sd">        p_field (str): The name of the user macro goal field.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (bool): The total macros remaining.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get the user&#39;s macro goal</span>
+    <span class="n">goal_macro</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">list_obj</span><span class="o">.</span><span class="n">author</span><span class="p">,</span> <span class="n">p_field</span><span class="p">)</span>
+    <span class="c1"># Get the total list</span>
+    <span class="n">total_list</span> <span class="o">=</span> <span class="n">total_list_macro</span><span class="p">(</span><span class="n">list_obj</span><span class="p">,</span> <span class="n">macro</span><span class="p">)</span>
+
+    <span class="n">remaining</span> <span class="o">=</span> <span class="n">goal_macro</span> <span class="o">-</span> <span class="n">total_list</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">remaining</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, David Aragon Rocha.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

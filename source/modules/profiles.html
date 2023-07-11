@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>profiles package &mdash; Fitness Django Project Initial Release documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="profiles.migrations package" href="profiles.migrations.html" />
+    <link rel="prev" title="manage module" href="manage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Fitness Django Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitness_project</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.html">foods package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">profiles package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html">profiles.migrations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.templatetags.html">profiles.templatetags package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.admin">profiles.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.apps">profiles.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.apps.ProfilesConfig"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.forms">profiles.forms module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.CustomClearableFileInput"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableMacroDataForm"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableUserInfoForm"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.PictureUpdateForm"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ProfileListForm"><code class="docutils literal notranslate"><span class="pre">ProfileListForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.models">profiles.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood"><code class="docutils literal notranslate"><span class="pre">ProfileFood</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList"><code class="docutils literal notranslate"><span class="pre">ProfileList</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.signals">profiles.signals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.signals.create_user_profile"><code class="docutils literal notranslate"><span class="pre">create_user_profile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.tests">profiles.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.urls">profiles.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles.views">profiles.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.views.add_food"><code class="docutils literal notranslate"><span class="pre">add_food()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.views.create_list"><code class="docutils literal notranslate"><span class="pre">create_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.views.lists"><code class="docutils literal notranslate"><span class="pre">lists()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.views.profile"><code class="docutils literal notranslate"><span class="pre">profile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.views.show_list"><code class="docutils literal notranslate"><span class="pre">show_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-profiles">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foods.html">foods package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">profiles package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html">profiles.migrations package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.templatetags.html">profiles.templatetags package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.admin">profiles.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.apps">profiles.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.apps.ProfilesConfig"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.apps.ProfilesConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.apps.ProfilesConfig.name"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.apps.ProfilesConfig.ready"><code class="docutils literal notranslate"><span class="pre">ProfilesConfig.ready()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.forms">profiles.forms module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.CustomClearableFileInput"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.CustomClearableFileInput.media"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput.media</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.CustomClearableFileInput.render"><code class="docutils literal notranslate"><span class="pre">CustomClearableFileInput.render()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.EditableMacroDataForm"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableMacroDataForm.base_fields"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableMacroDataForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableMacroDataForm.media"><code class="docutils literal notranslate"><span class="pre">EditableMacroDataForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.EditableUserInfoForm"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableUserInfoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableUserInfoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.EditableUserInfoForm.media"><code class="docutils literal notranslate"><span class="pre">EditableUserInfoForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.PictureUpdateForm"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.PictureUpdateForm.Meta"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.PictureUpdateForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.PictureUpdateForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.PictureUpdateForm.media"><code class="docutils literal notranslate"><span class="pre">PictureUpdateForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.ProfileListForm"><code class="docutils literal notranslate"><span class="pre">ProfileListForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ProfileListForm.Meta"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ProfileListForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ProfileListForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ProfileListForm.media"><code class="docutils literal notranslate"><span class="pre">ProfileListForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm.Meta"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm.media"><code class="docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm.media</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm.Meta"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm.base_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.base_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.declared_fields</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm.media"><code class="docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.models">profiles.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.models.Profile"><code class="docutils literal notranslate"><span class="pre">Profile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Profile.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Profile.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.calorie_goal"><code class="docutils literal notranslate"><span class="pre">Profile.calorie_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.carb_goal"><code class="docutils literal notranslate"><span class="pre">Profile.carb_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.fat_goal"><code class="docutils literal notranslate"><span class="pre">Profile.fat_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.id"><code class="docutils literal notranslate"><span class="pre">Profile.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.image"><code class="docutils literal notranslate"><span class="pre">Profile.image</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.objects"><code class="docutils literal notranslate"><span class="pre">Profile.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.profilelist_set"><code class="docutils literal notranslate"><span class="pre">Profile.profilelist_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.protein_goal"><code class="docutils literal notranslate"><span class="pre">Profile.protein_goal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.save"><code class="docutils literal notranslate"><span class="pre">Profile.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.user"><code class="docutils literal notranslate"><span class="pre">Profile.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.Profile.user_id"><code class="docutils literal notranslate"><span class="pre">Profile.user_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.models.ProfileFood"><code class="docutils literal notranslate"><span class="pre">ProfileFood</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ProfileFood.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ProfileFood.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.current_list"><code class="docutils literal notranslate"><span class="pre">ProfileFood.current_list</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.current_list_id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.current_list_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.food"><code class="docutils literal notranslate"><span class="pre">ProfileFood.food</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.food_id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.food_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.id"><code class="docutils literal notranslate"><span class="pre">ProfileFood.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.objects"><code class="docutils literal notranslate"><span class="pre">ProfileFood.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileFood.quantity"><code class="docutils literal notranslate"><span class="pre">ProfileFood.quantity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.models.ProfileList"><code class="docutils literal notranslate"><span class="pre">ProfileList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">ProfileList.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">ProfileList.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.author"><code class="docutils literal notranslate"><span class="pre">ProfileList.author</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.author_id"><code class="docutils literal notranslate"><span class="pre">ProfileList.author_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.id"><code class="docutils literal notranslate"><span class="pre">ProfileList.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.objects"><code class="docutils literal notranslate"><span class="pre">ProfileList.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.ready"><code class="docutils literal notranslate"><span class="pre">ProfileList.ready</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.selected_foods"><code class="docutils literal notranslate"><span class="pre">ProfileList.selected_foods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiles.models.ProfileList.title"><code class="docutils literal notranslate"><span class="pre">ProfileList.title</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.signals">profiles.signals module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.signals.create_user_profile"><code class="docutils literal notranslate"><span class="pre">create_user_profile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.tests">profiles.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.urls">profiles.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles.views">profiles.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.views.add_food"><code class="docutils literal notranslate"><span class="pre">add_food()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.views.create_list"><code class="docutils literal notranslate"><span class="pre">create_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.views.lists"><code class="docutils literal notranslate"><span class="pre">lists()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.views.profile"><code class="docutils literal notranslate"><span class="pre">profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles.views.show_list"><code class="docutils literal notranslate"><span class="pre">show_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-profiles">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fitness Django Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitness_project</a></li>
+      <li class="breadcrumb-item active">profiles package</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com//davidsito004/django-fitness-project/blob/maindocs/source/modules/profiles.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="profiles-package">
+<h1>profiles package<a class="headerlink" href="#profiles-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="profiles.migrations.html">profiles.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0001_initial">profiles.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more">profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0002_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more">profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0003_alter_profile_calorie_goal_alter_profile_carb_goal_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more">profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0004_profilefood_profilelist_delete_userlist_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0005_profilefood_quantity">profiles.migrations.0005_profilefood_quantity module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0005_profilefood_quantity.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0005_profilefood_quantity.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="profiles.migrations.html#profiles.migrations.0005_profilefood_quantity.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiles.templatetags.html">profiles.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiles.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.templatetags.html#module-profiles.templatetags.macro_tags">profiles.templatetags.macro_tags module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiles.templatetags.html#profiles.templatetags.macro_tags.remaining_macros"><code class="docutils literal notranslate"><span class="pre">remaining_macros()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.templatetags.html#profiles.templatetags.macro_tags.total_list_macro"><code class="docutils literal notranslate"><span class="pre">total_list_macro()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiles.templatetags.html#profiles.templatetags.macro_tags.total_macro"><code class="docutils literal notranslate"><span class="pre">total_macro()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.templatetags.html#module-profiles.templatetags">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-profiles.admin">
+<span id="profiles-admin-module"></span><h2>profiles.admin module<a class="headerlink" href="#module-profiles.admin" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-profiles.apps">
+<span id="profiles-apps-module"></span><h2>profiles.apps module<a class="headerlink" href="#module-profiles.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.apps.ProfilesConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.apps.</span></span><span class="sig-name descname"><span class="pre">ProfilesConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/apps.html#ProfilesConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.apps.ProfilesConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.apps.ProfilesConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#profiles.apps.ProfilesConfig.default_auto_field" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.apps.ProfilesConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'profiles'</span></em><a class="headerlink" href="#profiles.apps.ProfilesConfig.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="profiles.apps.ProfilesConfig.ready">
+<span class="sig-name descname"><span class="pre">ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/apps.html#ProfilesConfig.ready"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.apps.ProfilesConfig.ready" title="Permalink to this definition"></a></dt>
+<dd><p>Override this method in subclasses to run code when Django starts.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-profiles.forms">
+<span id="profiles-forms-module"></span><h2>profiles.forms module<a class="headerlink" href="#module-profiles.forms" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.CustomClearableFileInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">CustomClearableFileInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#CustomClearableFileInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.CustomClearableFileInput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ClearableFileInput</span></code></p>
+<p>Custom File input widget.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.CustomClearableFileInput.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.CustomClearableFileInput.media" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="profiles.forms.CustomClearableFileInput.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#CustomClearableFileInput.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.CustomClearableFileInput.render" title="Permalink to this definition"></a></dt>
+<dd><p>Return the modified HTML output for the widget.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name (str): The form field’s name.
+value (str): The value of the form field.
+attrs (dict, optional): Attributes for the widget. Defaults to None.
+renderer (Renderer, optional): Renderer object to use for rendering. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: String representation of the HTML to be rendered.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.EditableMacroDataForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">EditableMacroDataForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#EditableMacroDataForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.EditableMacroDataForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#profiles.forms.ReadOnlyMacroDataForm" title="profiles.forms.ReadOnlyMacroDataForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadOnlyMacroDataForm</span></code></a></p>
+<p>Form for displaying user macros information with editable fields.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.EditableMacroDataForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'calorie_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'carb_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'fat_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'protein_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.EditableMacroDataForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.EditableMacroDataForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.EditableMacroDataForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.EditableMacroDataForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.EditableMacroDataForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.EditableUserInfoForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">EditableUserInfoForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#EditableUserInfoForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.EditableUserInfoForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#profiles.forms.ReadOnlyUserInfoForm" title="profiles.forms.ReadOnlyUserInfoForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadOnlyUserInfoForm</span></code></a></p>
+<p>Form for displaying user information with editable fields.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.EditableUserInfoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.EditableUserInfoForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.EditableUserInfoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.EditableUserInfoForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.EditableUserInfoForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.EditableUserInfoForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">PictureUpdateForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#PictureUpdateForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.PictureUpdateForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for updating user profile picture.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../../_modules/profiles/forms.html#PictureUpdateForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.PictureUpdateForm.Meta" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['image']</span></em><a class="headerlink" href="#profiles.forms.PictureUpdateForm.Meta.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#profiles.forms.PictureUpdateForm.Meta.model" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.Profile" title="profiles.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.PictureUpdateForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.PictureUpdateForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.PictureUpdateForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.PictureUpdateForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">ProfileListForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#ProfileListForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ProfileListForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for creating a user list.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../../_modules/profiles/forms.html#ProfileListForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ProfileListForm.Meta" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title']</span></em><a class="headerlink" href="#profiles.forms.ProfileListForm.Meta.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#profiles.forms.ProfileListForm.Meta.model" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.ProfileList" title="profiles.models.ProfileList"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileList</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.ProfileListForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.ProfileListForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.ProfileListForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.ProfileListForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">ReadOnlyMacroDataForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#ReadOnlyMacroDataForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for displaying user macros information with read-only fields.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../../_modules/profiles/forms.html#ReadOnlyMacroDataForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.Meta" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['calorie_goal',</span> <span class="pre">'protein_goal',</span> <span class="pre">'carb_goal',</span> <span class="pre">'fat_goal']</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.Meta.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.Meta.model" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.Profile" title="profiles.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'calorie_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'carb_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'fat_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'protein_goal':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyMacroDataForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.ReadOnlyMacroDataForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.forms.</span></span><span class="sig-name descname"><span class="pre">ReadOnlyUserInfoForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/forms.html#ReadOnlyUserInfoForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Form for displaying user information with read-only fields.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../../_modules/profiles/forms.html#ReadOnlyUserInfoForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.Meta" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['username',</span> <span class="pre">'email']</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.Meta.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.Meta.model" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.base_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.declared_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="profiles.forms.ReadOnlyUserInfoForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#profiles.forms.ReadOnlyUserInfoForm.media" title="Permalink to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-profiles.models">
+<span id="profiles-models-module"></span><h2>profiles.models module<a class="headerlink" href="#module-profiles.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.models.Profile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.models.</span></span><span class="sig-name descname"><span class="pre">Profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/models.html#Profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing the profile of the user.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Profile: An instance of the Profile model.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.Profile.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#profiles.models.Profile.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.Profile.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#profiles.models.Profile.MultipleObjectsReturned" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.calorie_goal">
+<span class="sig-name descname"><span class="pre">calorie_goal</span></span><a class="headerlink" href="#profiles.models.Profile.calorie_goal" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.carb_goal">
+<span class="sig-name descname"><span class="pre">carb_goal</span></span><a class="headerlink" href="#profiles.models.Profile.carb_goal" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.fat_goal">
+<span class="sig-name descname"><span class="pre">fat_goal</span></span><a class="headerlink" href="#profiles.models.Profile.fat_goal" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#profiles.models.Profile.id" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#profiles.models.Profile.image" title="Permalink to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.Profile.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.profilelist_set">
+<span class="sig-name descname"><span class="pre">profilelist_set</span></span><a class="headerlink" href="#profiles.models.Profile.profilelist_set" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.protein_goal">
+<span class="sig-name descname"><span class="pre">protein_goal</span></span><a class="headerlink" href="#profiles.models.Profile.protein_goal" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="profiles.models.Profile.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/models.html#Profile.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save the profile instance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args: Variable length argument list.
+kwargs: Arbitrary keyword arguments.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#profiles.models.Profile.user" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.Profile.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#profiles.models.Profile.user_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.models.</span></span><span class="sig-name descname"><span class="pre">ProfileFood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/models.html#ProfileFood"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.ProfileFood" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a food item within a user’s profile list.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ProfileList: An instance of the PrifleList model.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#profiles.models.ProfileFood.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#profiles.models.ProfileFood.MultipleObjectsReturned" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.current_list">
+<span class="sig-name descname"><span class="pre">current_list</span></span><a class="headerlink" href="#profiles.models.ProfileFood.current_list" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.current_list_id">
+<span class="sig-name descname"><span class="pre">current_list_id</span></span><a class="headerlink" href="#profiles.models.ProfileFood.current_list_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.food">
+<span class="sig-name descname"><span class="pre">food</span></span><a class="headerlink" href="#profiles.models.ProfileFood.food" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.food_id">
+<span class="sig-name descname"><span class="pre">food_id</span></span><a class="headerlink" href="#profiles.models.ProfileFood.food_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#profiles.models.ProfileFood.id" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.ProfileFood.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileFood.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#profiles.models.ProfileFood.quantity" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="profiles.models.ProfileList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">profiles.models.</span></span><span class="sig-name descname"><span class="pre">ProfileList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/models.html#ProfileList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.ProfileList" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a list of food items in a profile.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ProfileList: An instance of the PrifleList model.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#profiles.models.ProfileList.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#profiles.models.ProfileList.MultipleObjectsReturned" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#profiles.models.ProfileList.author" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.author_id">
+<span class="sig-name descname"><span class="pre">author_id</span></span><a class="headerlink" href="#profiles.models.ProfileList.author_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#profiles.models.ProfileList.id" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.ProfileList.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.ready">
+<span class="sig-name descname"><span class="pre">ready</span></span><a class="headerlink" href="#profiles.models.ProfileList.ready" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.selected_foods">
+<span class="sig-name descname"><span class="pre">selected_foods</span></span><a class="headerlink" href="#profiles.models.ProfileList.selected_foods" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="profiles.models.ProfileList.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#profiles.models.ProfileList.title" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-profiles.signals">
+<span id="profiles-signals-module"></span><h2>profiles.signals module<a class="headerlink" href="#module-profiles.signals" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.signals.create_user_profile">
+<span class="sig-prename descclassname"><span class="pre">profiles.signals.</span></span><span class="sig-name descname"><span class="pre">create_user_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/signals.html#create_user_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.signals.create_user_profile" title="Permalink to this definition"></a></dt>
+<dd><p>Create a profile automatically after a new user is registered.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sender: The built-in User model in Django sends the signal.
+instance: The instance of the User model that was created.
+created (bool): Indicates if the User model instance was created.
+kwargs: Additional keyword arguments.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-profiles.tests">
+<span id="profiles-tests-module"></span><h2>profiles.tests module<a class="headerlink" href="#module-profiles.tests" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-profiles.urls">
+<span id="profiles-urls-module"></span><h2>profiles.urls module<a class="headerlink" href="#module-profiles.urls" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-profiles.views">
+<span id="profiles-views-module"></span><h2>profiles.views module<a class="headerlink" href="#module-profiles.views" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.views.add_food">
+<span class="sig-prename descclassname"><span class="pre">profiles.views.</span></span><span class="sig-name descname"><span class="pre">add_food</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/views.html#add_food"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.add_food" title="Permalink to this definition"></a></dt>
+<dd><p>Add a food to the list that is being displayed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>JsonResponse: A JSON response object.</p>
+</dd>
+<dt>Notes:</dt><dd><p>The JSON response object is used in conjunction with the addToList
+function in the javascript file to redirect the user to the updated list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.views.create_list">
+<span class="sig-prename descclassname"><span class="pre">profiles.views.</span></span><span class="sig-name descname"><span class="pre">create_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/views.html#create_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.create_list" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new user food list.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.views.lists">
+<span class="sig-prename descclassname"><span class="pre">profiles.views.</span></span><span class="sig-name descname"><span class="pre">lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/views.html#lists"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.lists" title="Permalink to this definition"></a></dt>
+<dd><p>Display user food lists.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.views.profile">
+<span class="sig-prename descclassname"><span class="pre">profiles.views.</span></span><span class="sig-name descname"><span class="pre">profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/views.html#profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.profile" title="Permalink to this definition"></a></dt>
+<dd><p>Display and update user information, profile picture and macro data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+<dt>Notes:</dt><dd><p>User information and macro data can be displayed in either read-only 
+or editable mode based on the edit button’s interaction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="profiles.views.show_list">
+<span class="sig-prename descclassname"><span class="pre">profiles.views.</span></span><span class="sig-name descname"><span class="pre">show_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/profiles/views.html#show_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.show_list" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.
+list_id (int): The id of the selected list.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-profiles">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-profiles" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manage.html" class="btn btn-neutral float-left" title="manage module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="profiles.migrations.html" class="btn btn-neutral float-right" title="profiles.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, David Aragon Rocha.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

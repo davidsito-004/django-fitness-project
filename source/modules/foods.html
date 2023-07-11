@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>foods package &mdash; Fitness Django Project Initial Release documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="foods.migrations package" href="foods.migrations.html" />
+    <link rel="prev" title="fitness_project package" href="fitness_project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Fitness Django Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fitness_project</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">foods package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html">foods.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.admin">foods.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.apps">foods.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.apps.FoodsConfig"><code class="docutils literal notranslate"><span class="pre">FoodsConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.context_processors">foods.context_processors module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.context_processors.get_categories"><code class="docutils literal notranslate"><span class="pre">get_categories()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.context_processors.get_foods_pages"><code class="docutils literal notranslate"><span class="pre">get_foods_pages()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.models">foods.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food"><code class="docutils literal notranslate"><span class="pre">Food</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.tests">foods.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.urls">foods.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods.views">foods.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView"><code class="docutils literal notranslate"><span class="pre">SearchFoodView</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.show_by_category"><code class="docutils literal notranslate"><span class="pre">show_by_category()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.show_foods"><code class="docutils literal notranslate"><span class="pre">show_foods()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-foods">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">accounts package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_app.html">core_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitness_project.html">fitness_project package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">foods package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html">foods.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.admin">foods.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.apps">foods.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foods.apps.FoodsConfig"><code class="docutils literal notranslate"><span class="pre">FoodsConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.apps.FoodsConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">FoodsConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.apps.FoodsConfig.name"><code class="docutils literal notranslate"><span class="pre">FoodsConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.context_processors">foods.context_processors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foods.context_processors.get_categories"><code class="docutils literal notranslate"><span class="pre">get_categories()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foods.context_processors.get_foods_pages"><code class="docutils literal notranslate"><span class="pre">get_foods_pages()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.models">foods.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foods.models.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Category.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Category.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.created_at"><code class="docutils literal notranslate"><span class="pre">Category.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.food_set"><code class="docutils literal notranslate"><span class="pre">Category.food_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.id"><code class="docutils literal notranslate"><span class="pre">Category.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.objects"><code class="docutils literal notranslate"><span class="pre">Category.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Category.title"><code class="docutils literal notranslate"><span class="pre">Category.title</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#foods.models.Food"><code class="docutils literal notranslate"><span class="pre">Food</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Food.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Food.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.calories"><code class="docutils literal notranslate"><span class="pre">Food.calories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.carbs"><code class="docutils literal notranslate"><span class="pre">Food.carbs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.categories"><code class="docutils literal notranslate"><span class="pre">Food.categories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.created_at"><code class="docutils literal notranslate"><span class="pre">Food.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.description"><code class="docutils literal notranslate"><span class="pre">Food.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.fat"><code class="docutils literal notranslate"><span class="pre">Food.fat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.foods"><code class="docutils literal notranslate"><span class="pre">Food.foods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Food.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Food.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Food.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Food.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.id"><code class="docutils literal notranslate"><span class="pre">Food.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.image"><code class="docutils literal notranslate"><span class="pre">Food.image</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.name"><code class="docutils literal notranslate"><span class="pre">Food.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.objects"><code class="docutils literal notranslate"><span class="pre">Food.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.proteins"><code class="docutils literal notranslate"><span class="pre">Food.proteins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.save"><code class="docutils literal notranslate"><span class="pre">Food.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.models.Food.updated_at"><code class="docutils literal notranslate"><span class="pre">Food.updated_at</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.tests">foods.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.urls">foods.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods.views">foods.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foods.views.SearchFoodView"><code class="docutils literal notranslate"><span class="pre">SearchFoodView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.context_object_name"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.context_object_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.get_context_data"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.get_context_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.get_queryset"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.model"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.model</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.paginate_by"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.paginate_by</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foods.views.SearchFoodView.template_name"><code class="docutils literal notranslate"><span class="pre">SearchFoodView.template_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#foods.views.show_by_category"><code class="docutils literal notranslate"><span class="pre">show_by_category()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foods.views.show_foods"><code class="docutils literal notranslate"><span class="pre">show_foods()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-foods">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fitness Django Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">fitness_project</a></li>
+      <li class="breadcrumb-item active">foods package</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com//davidsito004/django-fitness-project/blob/maindocs/source/modules/foods.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="foods-package">
+<h1>foods package<a class="headerlink" href="#foods-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="foods.migrations.html">foods.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0001_initial">foods.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html#foods.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0002_alter_category_options_category_created_at_and_more">foods.migrations.0002_alter_category_options_category_created_at_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html#foods.migrations.0002_alter_category_options_category_created_at_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0002_alter_category_options_category_created_at_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0002_alter_category_options_category_created_at_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more">foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html#foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0003_food_calories_alter_food_carbs_alter_food_fat_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#module-foods.migrations.0004_rename_protein_food_proteins">foods.migrations.0004_rename_protein_food_proteins module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="foods.migrations.html#foods.migrations.0004_rename_protein_food_proteins.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0004_rename_protein_food_proteins.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="foods.migrations.html#foods.migrations.0004_rename_protein_food_proteins.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="foods.migrations.html#module-foods.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-foods.admin">
+<span id="foods-admin-module"></span><h2>foods.admin module<a class="headerlink" href="#module-foods.admin" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-foods.apps">
+<span id="foods-apps-module"></span><h2>foods.apps module<a class="headerlink" href="#module-foods.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="foods.apps.FoodsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">foods.apps.</span></span><span class="sig-name descname"><span class="pre">FoodsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/apps.html#FoodsConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.apps.FoodsConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.apps.FoodsConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#foods.apps.FoodsConfig.default_auto_field" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.apps.FoodsConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'foods'</span></em><a class="headerlink" href="#foods.apps.FoodsConfig.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-foods.context_processors">
+<span id="foods-context-processors-module"></span><h2>foods.context_processors module<a class="headerlink" href="#module-foods.context_processors" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="foods.context_processors.get_categories">
+<span class="sig-prename descclassname"><span class="pre">foods.context_processors.</span></span><span class="sig-name descname"><span class="pre">get_categories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/context_processors.html#get_categories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.context_processors.get_categories" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve foods categories for rendering in templates.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing a QuerySet with all instances
+of Category.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="foods.context_processors.get_foods_pages">
+<span class="sig-prename descclassname"><span class="pre">foods.context_processors.</span></span><span class="sig-name descname"><span class="pre">get_foods_pages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/context_processors.html#get_foods_pages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.context_processors.get_foods_pages" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve paginated food pages for the context.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the paginated food page
+object, or an empty dictionary if no paginator is available.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-foods.models">
+<span id="foods-models-module"></span><h2>foods.models module<a class="headerlink" href="#module-foods.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="foods.models.Category">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">foods.models.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/models.html#Category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.models.Category" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Define the category model.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Category: An instance of the Category model.</p>
+</dd>
+<dt>Meta:</dt><dd><p>verbose_name_plural (str): The plural name for the Category model
+in the admin interface.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="foods.models.Category.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#foods.models.Category.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="foods.models.Category.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#foods.models.Category.MultipleObjectsReturned" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Category.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#foods.models.Category.created_at" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Category.food_set">
+<span class="sig-name descname"><span class="pre">food_set</span></span><a class="headerlink" href="#foods.models.Category.food_set" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Category.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Category.get_next_by_created_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Category.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Category.get_previous_by_created_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Category.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#foods.models.Category.id" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Category.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#foods.models.Category.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Category.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#foods.models.Category.title" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="foods.models.Food">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">foods.models.</span></span><span class="sig-name descname"><span class="pre">Food</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/models.html#Food"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.models.Food" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Define the food model.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Food: An instance of the Food model.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="foods.models.Food.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#foods.models.Food.DoesNotExist" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="foods.models.Food.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#foods.models.Food.MultipleObjectsReturned" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.calories">
+<span class="sig-name descname"><span class="pre">calories</span></span><a class="headerlink" href="#foods.models.Food.calories" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.carbs">
+<span class="sig-name descname"><span class="pre">carbs</span></span><a class="headerlink" href="#foods.models.Food.carbs" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.categories">
+<span class="sig-name descname"><span class="pre">categories</span></span><a class="headerlink" href="#foods.models.Food.categories" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#foods.models.Food.created_at" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#foods.models.Food.description" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.fat">
+<span class="sig-name descname"><span class="pre">fat</span></span><a class="headerlink" href="#foods.models.Food.fat" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.foods">
+<span class="sig-name descname"><span class="pre">foods</span></span><a class="headerlink" href="#foods.models.Food.foods" title="Permalink to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Food.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Food.get_next_by_created_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Food.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Food.get_next_by_updated_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Food.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Food.get_previous_by_created_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Food.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#foods.models.Food.get_previous_by_updated_at" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#foods.models.Food.id" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.image">
+<span class="sig-name descname"><span class="pre">image</span></span><a class="headerlink" href="#foods.models.Food.image" title="Permalink to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#foods.models.Food.name" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#foods.models.Food.objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.proteins">
+<span class="sig-name descname"><span class="pre">proteins</span></span><a class="headerlink" href="#foods.models.Food.proteins" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.models.Food.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/models.html#Food.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.models.Food.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save the food instance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args: Variable length argument list.
+kwargs: Arbitrary keyword arguments.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.models.Food.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#foods.models.Food.updated_at" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-foods.tests">
+<span id="foods-tests-module"></span><h2>foods.tests module<a class="headerlink" href="#module-foods.tests" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-foods.urls">
+<span id="foods-urls-module"></span><h2>foods.urls module<a class="headerlink" href="#module-foods.urls" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-foods.views">
+<span id="foods-views-module"></span><h2>foods.views module<a class="headerlink" href="#module-foods.views" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">foods.views.</span></span><span class="sig-name descname"><span class="pre">SearchFoodView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/views.html#SearchFoodView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.views.SearchFoodView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>Display a list of foods based on search query.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>ListView: An instance of ListView with the paginated search results.</p>
+</dd>
+<dt>Notes:</dt><dd><p>The variable name <cite>page_obj</cite> is utilized for consistency 
+across the context processor.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'page_obj'</span></em><a class="headerlink" href="#foods.views.SearchFoodView.context_object_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/views.html#SearchFoodView.get_context_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.views.SearchFoodView.get_context_data" title="Permalink to this definition"></a></dt>
+<dd><p>Add the title to the context</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>kwargs (dict): Additional keyword arguments.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The updated context dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/views.html#SearchFoodView.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.views.SearchFoodView.get_queryset" title="Permalink to this definition"></a></dt>
+<dd><p>Get the Food queryset based on search query</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>QuerySet: List of foods based on search query</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#foods.views.SearchFoodView.model" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#foods.models.Food" title="foods.models.Food"><code class="xref py py-class docutils literal notranslate"><span class="pre">Food</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.paginate_by">
+<span class="sig-name descname"><span class="pre">paginate_by</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#foods.views.SearchFoodView.paginate_by" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="foods.views.SearchFoodView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'foods/food_search.html'</span></em><a class="headerlink" href="#foods.views.SearchFoodView.template_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="foods.views.show_by_category">
+<span class="sig-prename descclassname"><span class="pre">foods.views.</span></span><span class="sig-name descname"><span class="pre">show_by_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/views.html#show_by_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.views.show_by_category" title="Permalink to this definition"></a></dt>
+<dd><p>Display a list of all available foods by category.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.
+category_id (int): The id of the category to filter foods.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+<dt>Notes:</dt><dd><p>The retrieval of foods by category is implemented through the 
+context processor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="foods.views.show_foods">
+<span class="sig-prename descclassname"><span class="pre">foods.views.</span></span><span class="sig-name descname"><span class="pre">show_foods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/foods/views.html#show_foods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#foods.views.show_foods" title="Permalink to this definition"></a></dt>
+<dd><p>Display a list of all available foods.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The HTTP request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: The HTTP response object.</p>
+</dd>
+<dt>Notes:</dt><dd><p>The retrieval of all foods is implemented through the 
+context processor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-foods">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-foods" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fitness_project.html" class="btn btn-neutral float-left" title="fitness_project package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="foods.migrations.html" class="btn btn-neutral float-right" title="foods.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, David Aragon Rocha.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
