@@ -1,0 +1,93 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/profile.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="profile-content">
+
+        <div class="head">
+            <div class="profile-image-container">
+                <img src="{{ profile.image.url }}">
+            </div>
+            <div class="picture-form-container">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ picture_update_form }}
+                    <div class="button-container">
+                        <button type="submit" name="picture_button" value="edit">Change</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="user-info">
+
+            <div class="top-title">
+                <h1>Welcome to your profile</h1>
+            </div>
+                <div class="form-container">
+                <form enctype="multipart/form-data" method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="personal-info">
+                        {% for field in user_update_form %}
+                            <div class="info-form">
+                                <p class="info-field">
+                                    {{ field.label_tag }} 
+                                    <div class="{% if field.errors %}input-error-highlight{% endif %}">{{ field }}</div>
+                                    {% if field.errors %}
+                                        <ul class="error-message">
+                                            {% for error in field.errors %}
+                                                <li>{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="calories-info">
+                            {% csrf_token %}
+                            <div class="top-title">
+                                <h1>Your Calorie and Macro Goals</h1>
+                            </div>
+                            <div class="macros-info">
+                                {% for field in profile_update_form %}
+                                        <div class="info-form">
+                                            <p class="info-field">
+                                                {{ field.label_tag }} 
+                                                <div class="{% if field.errors %}input-error-highlight{% endif %}">{{ field }}</div>
+                                                {% if field.errors %}
+                                                    <ul class="error-message">
+                                                        {% for error in field.errors %}
+                                                            <li>{{ error }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                {% endfor %}
+                            </div>  
+                    </div>
+
+                    {% if request.session.editable %}
+                    <div class="button-container">
+                        <button type="submit" name="info_button" value="save">Save</button>
+                    </div>
+                    {% else %}
+                    <div class="button-container">
+                        <button type="submit" name="info_button" value="edit">Edit</button>
+                    </div>
+                    {% endif %}
+                    
+                </form>
+            </div>   
+        </div>
+    </div>
+{% endblock content %}

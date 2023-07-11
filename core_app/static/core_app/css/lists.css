@@ -1,0 +1,59 @@
+h1 {
+    color: rgb(205, 203, 203);
+}
+
+a {
+    color: rgb(31, 30, 30);
+    text-decoration: none;
+}
+
+.new-list-link {
+    font-size: clamp(16px, 2vw, 22px);
+    padding-bottom: 20px;
+    display: block;
+    color: rgba(205, 203, 203, 0.6);
+}
+
+.lists-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.food-list-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+    height: 30px;
+    border-radius: .3em;
+    box-shadow: 10px 10px 30px rgb(118, 117, 117);
+    font-size: clamp(16px, 1.4vw, 22px);
+    padding: 4%;
+    background-color: rgba(205, 203, 203, 0.5);
+}
+
+.list-name {
+    color: rgb(246, 242, 242);
+}
+
+.food-list-container span {
+    color: rgb(205, 203, 203);
+}
+
+.remove-list-button {
+    color: rgb(241, 21, 21);
+    font-size: clamp(4px, 1vw, 16px);
+    background-color: rgb(175, 191, 224);
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s;
+}
+
+.remove-list-button:hover {
+    opacity: 0.8;
+}
+
+.remove-list-button:active {
+    opacity: 0.5;
+}

@@ -1,0 +1,159 @@
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(234, 232, 232, 0.5);
+    border-radius: 12px;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 3%;
+}
+
+.profile-image-container {
+    position: relative;
+    padding-top: 98%;
+    border: 1px solid rgb(194, 192, 192);
+    border-radius: 34px;
+    align-items: center;
+}
+
+.profile-image-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 34px;
+    /* Don't allow it to scale up to be larger than its original size */
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.picture-form-container {
+    width: 100%;
+    max-width: 110px;
+    align-self: center;
+}
+
+.picture-form-container form input {
+    font-size: clamp(6px, 1vw, 16px)
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    flex: 3;
+    padding: 20px;
+    color: rgb(76, 75, 75);
+    overflow: hidden;
+}
+
+.top-title h1 {
+    color: rgb(76, 75, 75);
+    font-size: clamp(16px, 2vw + 1rem, 40px);
+    margin: 0;
+    margin-bottom: 1.5vw;
+}
+
+.info-form p {
+    margin: 0;
+}
+
+.personal-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    overflow: hidden;
+}
+
+.personal-info {
+    font-size: 1rem;
+}
+
+.personal-info input {
+    width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.personal-info input,
+.calories-info input {
+    text-align: center;
+    border: 0;
+    border-radius: 12px;
+    height: 32px;
+    font-size: 16px;
+    margin: 1em;
+    padding: 0.5em;
+    background-color: rgb(220, 220, 220);
+    color: rgb(30, 30, 30);
+}
+
+.macros-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4vw;
+}
+
+.macros-info .info-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calories-info input {
+    width: 150px;
+}
+
+.calories-info input::-webkit-outer-spin-button,
+.calories-info input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.calories-info input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.button-container button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 32px;
+    background-color: rgb(27, 27, 248);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: color;
+}
+
+.button-container button:hover {
+    color: #dad7d7;
+}
+
+.button-container button:active {
+    color: #adacac;
+}
+
+
+@media only screen and (max-width: 658px) {
+    .personal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .macros-info {
+        grid-template-columns: 1fr;
+    }
+
+}

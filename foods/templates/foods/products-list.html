@@ -1,0 +1,79 @@
+{% load static %}
+<nav class="food-nav">
+    <div class="tags-container">
+        Categories:
+        {% for category in categories %}
+            <a href="{% url 'category-url' category.id %}">{{ category }}</a> | 
+        {% endfor %}
+        <a href="{% url 'food-list' %}">all</a>
+    </div>
+    <form class="search-bar-container" method="GET" action="{% url 'food-search' %}">
+        <button>
+            <img src="{% static 'core_app/images/search-image.jpeg' %}">
+        </button>
+        <input name="query" type="search" placeholder="Search food">
+    </form>
+</nav>
+
+<div class="category-title">{{ content_title }}</div>
+
+<div class="food-info-layout">
+    {% comment %} This 'if' is related to the SearchFoodView
+    If the lookup does not find any results {% endcomment %}
+    {% if foods == '' %}
+        <div class="no-results-title">
+            <h1>Results were not found</h1>
+        </div>
+    {% else %}
+        {% comment %} Loop through the page object from context_proccessors.py {% endcomment %}
+        {% for food in page_obj %}
+
+            <div class="food-image-container">
+                <img class="food-image" src="{{ food.image.url }}">
+            </div>
+            
+            <div class="food-info">
+
+                <div class="food-title">
+                    {{ food.name }}
+                </div>
+                <div class="food-description">
+                    {{ food.description }}
+                </div>
+                <div class="food-macros">
+                    <div class="cal-container">
+                        <div class="macro-name">Calories (kcal): </div>
+                        <div class="cal-value">{{ food.calories }}</div>
+                    </div>
+                    <div class="macro-container">
+                        <div class="macro-name">Protein (g):</div> 
+                        <div class="macro-value">{{ food.proteins }}</div>
+                    </div>
+                    <div class="macro-container">
+                        <div class="macro-name">Carbs (g):</div>
+                        <div class="macro-value">{{ food.carbs }}</div>
+                    </div>
+                    <div class="macro-container">
+                        <div class="macro-name">Fat (g):</div>
+                        <div class="macro-value">{{ food.fat }}</div>
+                    </div>
+                </div>
+                <div class="food-categories">
+                    <div>
+                        {% for category in food.categories.all %}
+                            <a href="{% url 'category-url' category.id %}">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="standard-button-container add-button-listener">
+                        <button value="{{ food.id }}">Add to list</button>
+                    </div>
+                </div>
+            </div>
+                
+
+
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% include 'core_app/pagination.html' %}

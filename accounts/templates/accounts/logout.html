@@ -1,0 +1,21 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/accessibility.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div>
+        <div class="logout-message">
+            <h1>You have been successfully logged out.</h1>
+        </div>
+        <div class="form-bottom-message justify-box-center">
+            <small>
+                <a href="{% url 'login-user' %}">Return to Login</a>
+            </small>
+        </div>
+    </div>
+
+{% endblock content %}
+

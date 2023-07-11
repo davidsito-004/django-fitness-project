@@ -1,0 +1,16 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core_app/css/food-list.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'foods/products-list.html'%}
+
+{% endblock content %}
+
+
+

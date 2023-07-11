@@ -1,0 +1,33 @@
+.grid-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 54px;
+    row-gap: 30px;
+}
+
+
+.main-message-container h1 {
+    font-size: 70px;
+    color: rgb(250, 247, 247);
+}
+
+.main-message-container p {
+    font-size: 30px;
+    color: rgb(163, 163, 163);
+}
+
+.main-image-container img {
+    border-radius: 40px;
+    width: 100%;
+}
+
+.standard-button-container button {
+    background-color: rgb(46, 132, 238);
+}
+
+@media (max-width: 750px) {
+
+    .grid-home {
+        grid-template-columns: 1fr;
+    }
+}

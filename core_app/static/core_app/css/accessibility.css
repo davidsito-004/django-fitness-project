@@ -1,0 +1,103 @@
+.box-content {
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.justify-box-center {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    width: 50%;
+    background-color: rgba(234, 232, 232, 0.5);
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15), -5px 5px 10px rgba(0, 0, 0, 0.15);
+    padding-bottom: 10px;
+}
+
+.form-group fieldset {
+    border: none;
+}
+
+.form-legend-container {
+    margin-bottom: 30px;
+}
+
+.form-group legend {
+    font-size: 34px;
+    color: rgb(109, 108, 108);
+}
+
+.form-field {
+    margin-bottom: 4px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 97%;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: #f3f0f0;
+    border: none;
+    outline: none;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 14px;
+}
+
+input:focus {
+    outline: 1px solid #e2dfdf;
+}
+
+.help-text {
+    color: rgb(109, 108, 108);
+}
+
+/* The help text of password1 is set as an 
+ul outside of the help-text p tag */
+.form-group ul {
+    color: rgb(109, 108, 108);
+}
+
+
+label::after {
+    content: "*";
+    color: rgb(221, 52, 52);
+}
+
+.error-message {
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+.error-message li {
+    color: rgb(221, 52, 52);
+}
+
+.input-error-highlight {
+    border: 1px solid rgb(221, 52, 52);
+    border-radius: 4px;
+}
+
+
+.form-bottom-message {
+    margin-top: 10px;
+}
+
+.form-bottom-message a {
+    text-decoration: none;
+    color: rgb(245, 242, 242);
+}
+
+.logout-message {
+    color: rgb(245, 242, 242);
+}

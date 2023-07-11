@@ -1,0 +1,112 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+{% load macro_tags %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/edit-list.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="edit-content">
+
+        <div class="edit-title-container">
+            <h1 class="edit-title">{{ current_list }}</h1>
+        </div>
+        
+        <div class="list-head">
+            <div>List's totals: </div>
+            <div class="macro-summary">
+                <div><span>proteins: </span>{% total_list_macro current_list 'proteins' %} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>carbs: </span>{% total_list_macro current_list 'carbs' %} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>fat: </span>{% total_list_macro current_list 'fat' %} g</div>
+            </div> 
+            <div class="macro-summary">
+                <div><span>calories: </span>{% total_list_macro current_list 'calories' %} kcal</div>
+            </div> 
+        </div>
+        <div class="list-head">
+            <div>Your goals: </div>
+            <div class="macro-summary">
+                <div><span>proteins: </span>{{ current_list.author.protein_goal }} g </div>
+            </div>
+            <div class="macro-summary">
+                <div><span>carbs: </span>{{ current_list.author.carb_goal }} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>fat: </span>{{ current_list.author.fat_goal }} g</div>
+            </div> 
+            <div class="macro-summary">
+                <div><span>calories: </span>{{ current_list.author.calorie_goal }} kcal</div>
+            </div> 
+        </div>
+        <div class="list-head">
+            <div>Remaining: </div>
+            <div class="macro-summary">
+                <div><span>proteins: </span>{% remaining_macros current_list 'proteins' 'protein_goal' %} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>carbs: </span>{% remaining_macros current_list 'carbs' 'carb_goal' %} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>fat: </span>{% remaining_macros current_list 'fat' 'fat_goal' %} g</div>
+            </div>
+            <div class="macro-summary">
+                <div><span>calories: </span>{% remaining_macros current_list 'calories' 'calorie_goal' %} kcal</div>
+            </div>
+        </div>
+
+        <div class="list-content">
+           
+            {% for food in selected_foods %}
+                <div class="food-info food-element">
+                    <div class="food-image-container">
+                        <img src="{{ food.food.image.url }}">
+                    </div>
+                    <div class="food-name">
+                        <ul title="Name">
+                            <li>{{ food }}</li>
+                        </ul>
+                    </div>
+                    <div class="food-quantity">
+                        <ul title="Quantity">
+                            <li>{{ food.quantity }}</li>
+                        </ul>
+                    </div> 
+                    <div class="total-macro">
+                        <ul title="Proteins">
+                            <li>{% total_macro food 'proteins' %}</li>
+                        </ul>
+                    </div>
+                    <div class="total-macro">
+                        <ul title="Carbs">
+                            <li>{% total_macro food 'carbs' %}</li>
+                        </ul>
+                    </div>
+                    <div class="total-macro">
+                        <ul title="Fat">
+                            <li>{% total_macro food 'fat' %}</li>
+                        </ul>
+                    </div>
+                    <div class="total-macro">
+                        <ul title="Calories">
+                        <li>{% total_macro food 'calories' %}</li>
+                        </ul>
+                    </div>
+                    <form class="remove-button" method="POST"> 
+                        {% csrf_token %}
+                        <button name="remove" value="{{ food.id }}">Remove</button>
+                    </form>
+                </div> 
+            {% endfor %}
+        </div>
+
+        <div class="add-food-link">
+            <a href="{% url 'food-list' %}">Add food</a>
+        </div>
+    </div> 
+{% endblock content %}
+

@@ -1,0 +1,30 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/home.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="grid-home">
+        <div class="main-message-container">
+            <h1>Achieve your daily calorie goals.</h1>
+            <p>Control what you eat and know your eating habits</p> 
+            <form action="{% url 'register-user'%}" class="standard-button-container">
+                <button>Register Now</button>
+            </form>
+        </div>
+
+        <div class="main-image-container">
+            <img src="{% static 'core_app/images/main-image.jpg' %}">
+        </div>
+        <div class="main-image-container">
+            <img src="{% static 'core_app/images/second-home-image.jpg' %}">
+        </div>
+        <div class="main-message-container">
+            <h1>Select from a variety of products to view their nutritional information</h1>
+            <p>Select what you're eating and see how many calories you're consuming</p>
+        </div>
+    </div>
+{% endblock content %}
+

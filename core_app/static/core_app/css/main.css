@@ -1,0 +1,118 @@
+body {
+    background: linear-gradient(75deg, #001380, #1689af);
+    color: #272727;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.app-bar {
+    height: 50px;
+    background: linear-gradient(75deg, #001380, #1689af);
+    box-shadow: 10px 10px 30px linear-gradient(75deg, #001380, #1689af);
+    margin-bottom: 24px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.message {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+.success {
+    background: rgba(146, 237, 141, 0.5);
+    color: rgb(4, 55, 9);
+    text-align: center;
+    width: 100%;
+    border-radius: 4px;
+    height: 34px;
+    padding-top: 10px;
+}
+
+.main-content {
+    min-height: 860px;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.nav-links-container {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 12%;
+    margin-right: 12%;
+    align-items: center;
+
+}
+
+.nav-links-container a {
+    color: #fffdfd;
+    text-decoration: none;
+    transition: opacity 0.16s;
+}
+
+.nav-links-container a:hover {
+    opacity: 0.8;
+}
+
+.nav-links-container a:active {
+    opacity: 0.6;
+}
+
+.nav-links-container a {
+    font-size: 16px;
+
+}
+
+.nav-options {
+    font-size: 16px;
+    display: flex;
+}
+
+.nav-options a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+footer {
+    height: 15px;
+    background: linear-gradient(75deg, #001380, #1689af);
+    border-top: 1px solid #686666;
+    color: #fffdfd;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 10px gray;
+    margin-top: 5%;
+
+}
+
+.standard-button-container button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: rgb(27, 27, 248);
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: color;
+}
+
+.standard-button-container button:hover {
+    color: #dad7d7;
+}
+
+.standard-button-container button:active {
+    color: #adacac;
+}

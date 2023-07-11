@@ -1,0 +1,36 @@
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/pagination.css' %}">
+{% endblock styles %}
+
+<div class="pagination-container">
+{% if page_obj.has_previous %} 
+{% comment %} This will send the user to the very first page {% endcomment %}
+<a class="btn" href="?page=1">First</a>
+<a class="btn" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+    {% comment %}To show pages before and after the current one, 
+    utilize the page_obj.paginator to access the paginator object 
+    of the current page. Then, use the page_range attribute 
+    to iterate through all the available pages. {% endcomment %}
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <a class="btn" href="?page={{ num }}">{{ num }}</a>
+        {% comment %} If the current page number falls within the 
+        three preceding pages, we need to include all pages 
+        within the subsequent three pages, the reason of 
+        add:'-3' is because there's no subtract {% endcomment %}
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} 
+        <a class="btn" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+{% if page_obj.has_next %}
+<a class="btn" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+
+{% endif %}
+</div>
+    {% comment %} {% endif %} {% endcomment %}

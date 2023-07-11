@@ -1,0 +1,153 @@
+.edit-content {
+    display: grid;
+    row-gap: 1vw;
+    background: rgba(93, 92, 92, 0.5);
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15), -5px 5px 10px rgba(0, 0, 0, 0.15);
+    padding-bottom: 10px;
+}
+
+.edit-title-container {
+    text-align: center;
+}
+
+.edit-title {
+    color: rgb(205, 203, 203);
+    font-size: clamp(20px, 3vw + 1rem, 40px);
+}
+
+.list-head {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 5%;
+    color: rgb(205, 203, 203);
+    width: 80%;
+    font-size: clamp(8px, 1.1vw, 14px);
+}
+
+.macro-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3%;
+}
+
+.macro-summary span {
+    font-weight: bold;
+    color: rgb(2, 2, 3);
+}
+
+.list-content {
+    margin-top: 4%;
+    display: grid;
+    row-gap: 1em;
+}
+
+.food-element {
+    border-radius: .3em;
+    box-shadow: 10px 10px 30px rgb(118, 117, 117);
+}
+
+ul[title]::before {
+    content: attr(title);
+    font-size: clamp(8px, 1.2vw, 22px);
+    color: rgb(21, 21, 21);
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding-top: 10%;
+    font-size: clamp(9px, 1.3vw, 22px);
+    color: rgb(205, 203, 203);
+}
+
+.food-info {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 4px;
+    border-radius: 4px;
+}
+
+.food-image-container {
+    position: relative;
+    padding-top: 9%;
+    /* padding-bottom: 1.6%; */
+    border-radius: 34px;
+    flex: 1;
+    margin-top: 2%;
+    height: 0;
+}
+
+.food-image-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 34px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.food-name {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.food-quantity {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.total-macro {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1%;
+    width: 8%;
+}
+
+.remove-button button {
+    text-decoration: none;
+    color: rgb(243, 11, 11);
+    background: #fffdfd;
+    border: 1px solid rgb(243, 11, 11);
+    padding: 4%;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 30%;
+    font-size: clamp(2px, 0.7vw, 16px);
+}
+
+.add-food-link {
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.add-food-link a {
+    text-decoration: none;
+    color: rgb(205, 203, 203);
+    border: 1px solid rgb(205, 203, 203);
+    padding: 0.5%;
+    border-radius: 5px;
+}

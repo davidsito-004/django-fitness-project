@@ -1,0 +1,29 @@
+{% extends 'core_app/layout.html' %}
+{% load static %}
+{% load macro_tags %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'core_app/css/lists.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <h1>Your lists</h1>
+    <div>
+        <a class="new-list-link" href="{% url 'create-list'%}">New list</a>
+    </div>
+    <form class="lists-container" method="POST">
+        {% csrf_token %}
+        {% for list in page_obj %}
+            <a href="{% url 'list' list.id %}" class="food-list-container">
+                <div class="list-name">{{ list }}</div>
+                <div>Proteins: <span>{% total_list_macro list 'proteins' %}</span></div>
+                <div>Carbs:  <span>{% total_list_macro list 'carbs' %}</span></div>
+                <div>Fat:  <span>{% total_list_macro list 'fat' %}</span></div>
+                <div>Calories:  <span>{% total_list_macro list 'calories' %}</span></div>
+                <button class="remove-list-button"name="remove" value="{{ list.id }}">Remove</button>
+            </a>   
+        {% endfor %}
+    </form>
+
+{% include 'core_app/pagination.html' %}
+{% endblock content %}

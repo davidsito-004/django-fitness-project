@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" , type="text/css" href="{% static 'core_app/css/main.css' %}">
+    {% comment %} For adding specific styles {% endcomment %}
+    {% block styles %}{% endblock styles %}
+
+    {% if title %}
+        <title>Fitness - {{ title }}</title>
+    {% else %}
+        <title>Fitness</title>
+    {% endif %}
+
+</head>
+<body>
+    <header class="app-bar">
+        <nav>
+            <div class="nav-links-container">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile'%}">Profile</a>
+                {% else %}
+                    <a href="{% url 'home' %}">Fitness Project</a>
+                {% endif %}
+                
+                <div class="nav-options">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'user-lists' %}">My lists</a>
+                        <a href="{% url 'logout-user' %}">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login-user' %}">Login</a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-content">
+            {% if messages %}
+                <ul class="message">
+                    {% for message in messages  %}
+                        <li{% if message.tags %} class="{{ message.tags }} "{% endif %}>{{ message }}</li>
+                     {% endfor %}
+                </ul>
+            {% endif %}
+            <div class="box-content">{% block content %}{% endblock content %}</div>
+
+        </div>
+    </main>
+
+    <footer>
+        Fitness Project with Django - &copy;Davidsito
+    </footer>
+    <script src="{% static 'core_app/js/script.js' %}"></script>
+</body>
+</html>

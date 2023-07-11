@@ -1,0 +1,158 @@
+.box-content {
+    background: rgba(220, 215, 215, 0.5);
+    padding: 2vw 2vw;
+    border-radius: 12px;
+}
+
+.food-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px inset rgb(109, 108, 108);
+    margin-bottom: 14px;
+    height: 36px;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    flex: 200px;
+    max-width: 400px;
+    margin-bottom: 40px;
+
+}
+
+.search-bar-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: color(srgb 0.9646 0.9648 0.9647);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: none;
+}
+
+.search-bar-container img {
+    height: 29px;
+    flex: 20px;
+
+}
+
+.search-bar-container input {
+    flex: 1;
+    height: 34px;
+    padding-left: 14px;
+    font-size: 16px;
+    border: 1px solid color(srgb 0.9646 0.9648 0.9647);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 0;
+    outline: none;
+
+}
+
+.search-bar-container input:focus {
+    outline: 1px solid rgb(222, 221, 221);
+}
+
+
+.category-title {
+    font-size: 34px;
+    color: rgb(241, 239, 239);
+    margin-bottom: 14px;
+
+}
+
+.tags-container {
+    margin-bottom: 40px;
+}
+
+.tags-container a {
+    text-decoration: none;
+    color: rgb(27, 27, 248);
+}
+
+.food-info-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 14px;
+    row-gap: 30px;
+    margin-bottom: 2vw;
+}
+
+
+.food-image {
+    width: 100%;
+    border-radius: 12px;
+    max-width: 100%;
+}
+
+.food-info {
+    display: grid;
+    row-gap: 1.4vw;
+}
+
+.food-title {
+    font-size: 24px;
+    color: rgb(240, 236, 236);
+}
+
+.food-description {
+    text-align: justify;
+    color: rgb(17, 53, 115);
+
+}
+
+.cal-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
+}
+
+.macro-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.macro-name {
+    width: 110px;
+    color: rgb(27, 27, 27);
+
+}
+
+.cal-value {
+    border: 1px solid red;
+    width: 40px;
+    padding: 2px;
+    color: rgb(234, 233, 233);
+}
+
+.macro-value {
+    border: 1px solid green;
+    width: 40px;
+    padding: 2px;
+    color: rgb(234, 233, 233);
+}
+
+.food-categories {
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-categories a {
+
+    word-spacing: 4px;
+    text-decoration: none;
+    color: rgb(27, 27, 248);
+
+
+}
+
+
+.no-results-title {
+    color: rgb(90, 89, 89);
+    width: 500px;
+}

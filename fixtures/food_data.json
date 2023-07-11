@@ -1,0 +1,964 @@
+[
+{
+  "model": "foods.food",
+  "pk": 1,
+  "fields": {
+    "name": "Tuna Dolores 140g",
+    "description": "Dolores Tuna Protein is a food product that is marketed as a high-protein option for people who want to increase their protein intake.",
+    "calories": 163.0,
+    "proteins": 29.4,
+    "carbs": 2.5,
+    "fat": 4.0,
+    "image": "foods_pictures/tuna-dolores.png",
+    "created_at": "2023-04-10T22:29:50.892Z",
+    "updated_at": "2023-05-11T22:47:14.781Z",
+    "categories": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 2,
+  "fields": {
+    "name": "Boiled egg",
+    "description": "When an egg is in boiling water, the intense heat promotes extensive protein bonding, so it solidifies quickly and changes to a texture that's best described as 'rubbery'.",
+    "calories": 308.0,
+    "proteins": 25.5,
+    "carbs": 2.2,
+    "fat": 19.7,
+    "image": "foods_pictures/boiled-egg.png",
+    "created_at": "2023-04-10T22:31:04.788Z",
+    "updated_at": "2023-05-11T21:32:43.536Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 3,
+  "fields": {
+    "name": "Banana 100g",
+    "description": "Bananas are an excellent source of carbohydrates, which are the primary energy source for our bodies during exercise.",
+    "calories": 105.0,
+    "proteins": 1.3,
+    "carbs": 27.0,
+    "fat": 0.4,
+    "image": "foods_pictures/banana_Q04Mv2K.png",
+    "created_at": "2023-04-10T22:32:20.317Z",
+    "updated_at": "2023-05-11T21:16:04.500Z",
+    "categories": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 4,
+  "fields": {
+    "name": "Lala100 250ml",
+    "description": "This milk is known for its nutritional benefits. It is packed with essential vitamins, minerals, and proteins that contribute to a healthy and balanced diet.",
+    "calories": 133.0,
+    "proteins": 13.5,
+    "carbs": 8.4,
+    "fat": 5.0,
+    "image": "foods_pictures/lala100.png",
+    "created_at": "2023-05-11T21:09:12.169Z",
+    "updated_at": "2023-05-11T22:54:05.323Z",
+    "categories": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 5,
+  "fields": {
+    "name": "Chicken breast 100g",
+    "description": "Chicken breast supplies essential amino acids, which are the building blocks of protein. These amino acids assist in repairing muscle tissues, supporting post-workout recovery, and enhancing overall muscle function.",
+    "calories": 145.0,
+    "proteins": 22.2,
+    "carbs": 0.0,
+    "fat": 6.2,
+    "image": "foods_pictures/chicken-breast.png",
+    "created_at": "2023-05-11T21:41:19.069Z",
+    "updated_at": "2023-05-12T19:56:36.633Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 6,
+  "fields": {
+    "name": "Oats 20g",
+    "description": "Oats are a great source of complex carbohydrates, providing a slow and steady release of energy, which can help fuel workouts and sustain endurance during physical activities.",
+    "calories": 78.0,
+    "proteins": 3.4,
+    "carbs": 13.3,
+    "fat": 1.4,
+    "image": "foods_pictures/oats.png",
+    "created_at": "2023-05-11T22:27:04.007Z",
+    "updated_at": "2023-05-11T22:27:04.007Z",
+    "categories": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 7,
+  "fields": {
+    "name": "Avocado 40g",
+    "description": "With its unique composition of healthy fats, vitamins, minerals, and dietary fiber, avocados are an excellent addition to a fitness-oriented diet.",
+    "calories": 64.0,
+    "proteins": 0.8,
+    "carbs": 3.4,
+    "fat": 5.9,
+    "image": "foods_pictures/avocado.png",
+    "created_at": "2023-05-11T22:34:06.627Z",
+    "updated_at": "2023-05-11T22:34:28.593Z",
+    "categories": [
+      4,
+      6,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 8,
+  "fields": {
+    "name": "Strawberries 50g",
+    "description": "Strawberries are rich in antioxidants, particularly vitamin C. Antioxidants play a crucial role in protecting the body from free radicals generated during exercise and promoting post-workout recovery.",
+    "calories": 16.0,
+    "proteins": 0.3,
+    "carbs": 3.8,
+    "fat": 0.2,
+    "image": "foods_pictures/strawberries.png",
+    "created_at": "2023-05-11T22:40:55.430Z",
+    "updated_at": "2023-05-11T22:40:55.430Z",
+    "categories": [
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 9,
+  "fields": {
+    "name": "Cooked white rice 50g",
+    "description": "White rice is a carbohydrate-rich food that provides a quick and easily digestible source of energy. This makes it an excellent option for fueling workouts and replenishing glycogen stores after intense physical activity.",
+    "calories": 93.0,
+    "proteins": 1.9,
+    "carbs": 20.0,
+    "fat": 0.2,
+    "image": "foods_pictures/cooked-white-rice.png",
+    "created_at": "2023-05-11T22:45:51.201Z",
+    "updated_at": "2023-05-11T22:45:51.201Z",
+    "categories": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 10,
+  "fields": {
+    "name": "Almonds 25g",
+    "description": "Almonds offer healthy fats and protein, they also offer a wide range of vitamins and minerals. They are particularly high in vitamin E, which acts as an antioxidant and helps protect cells from oxidative damage caused by intense exercise.",
+    "calories": 145.0,
+    "proteins": 5.2,
+    "carbs": 5.0,
+    "fat": 12.8,
+    "image": "foods_pictures/almonds.png",
+    "created_at": "2023-05-11T22:53:04.413Z",
+    "updated_at": "2023-05-11T22:53:04.413Z",
+    "categories": [
+      3,
+      4,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 11,
+  "fields": {
+    "name": "Greek yogurt Chobani 170g",
+    "description": "One of the notable features of plain Greek yogurt is its high protein content. Protein is essential for muscle repair, recovery, and growth, making it a crucial component of a fitness-oriented diet.",
+    "calories": 97.0,
+    "proteins": 16.0,
+    "carbs": 7.0,
+    "fat": 9.0,
+    "image": "foods_pictures/greek-yogurt.png",
+    "created_at": "2023-05-11T23:23:35.333Z",
+    "updated_at": "2023-05-12T21:56:37.820Z",
+    "categories": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 12,
+  "fields": {
+    "name": "Heinz Full of Beanz 210g",
+    "description": "Beans, like most legumes, are a good source of complex carbohydrates. These carbohydrates are digested and absorbed more slowly by the body, leading to a steady release of energy over time.",
+    "calories": 176.0,
+    "proteins": 10.9,
+    "carbs": 25.2,
+    "fat": 1.3,
+    "image": "foods_pictures/beans.png",
+    "created_at": "2023-05-11T23:42:17.552Z",
+    "updated_at": "2023-05-11T23:42:17.552Z",
+    "categories": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 13,
+  "fields": {
+    "name": "Salmon 60g",
+    "description": "Salmon is an excellent source of high-quality protein, which is essential for muscle repair, growth, and recovery. Protein is particularly beneficial for individuals engaged in strength training, endurance activities, or any form of physical exercise.",
+    "calories": 53.0,
+    "proteins": 11.1,
+    "carbs": 0.0,
+    "fat": 0.5,
+    "image": "foods_pictures/salmon.png",
+    "created_at": "2023-05-11T23:47:42.885Z",
+    "updated_at": "2023-05-11T23:47:42.885Z",
+    "categories": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 14,
+  "fields": {
+    "name": "Broccoli 60g",
+    "description": "As a low-calorie vegetable, broccoli can be beneficial for weight management. Its high water content and fiber contribute to a satisfying meal while providing essential nutrients without adding excessive calories.",
+    "calories": 20.0,
+    "proteins": 1.7,
+    "carbs": 4.0,
+    "fat": 0.2,
+    "image": "foods_pictures/broccoli.png",
+    "created_at": "2023-05-11T23:54:39.501Z",
+    "updated_at": "2023-05-11T23:54:39.501Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 15,
+  "fields": {
+    "name": "Potato 80g",
+    "description": "Potatoes are packed with nutrients, including fiber, vitamins A and C, and potassium. They provide a natural sweetness and are a great source of complex carbohydrates for sustained energy.",
+    "calories": 62.0,
+    "proteins": 1.6,
+    "carbs": 14.0,
+    "fat": 0.1,
+    "image": "foods_pictures/potato.png",
+    "created_at": "2023-05-12T00:00:34.939Z",
+    "updated_at": "2023-05-12T00:00:34.939Z",
+    "categories": [
+      4,
+      5,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 16,
+  "fields": {
+    "name": "Steak 100g",
+    "description": "Steak is a cut of beef that provides a concentrated source of high-quality protein, essential amino acids, vitamins, and minerals. It is often enjoyed for its rich flavor, tenderness, and the satisfaction it brings to a meal.",
+    "calories": 280.0,
+    "proteins": 24.0,
+    "carbs": 0.0,
+    "fat": 22.0,
+    "image": "foods_pictures/steak.png",
+    "created_at": "2023-05-12T00:13:26.496Z",
+    "updated_at": "2023-05-12T00:13:26.496Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 17,
+  "fields": {
+    "name": "Kale 30g",
+    "description": "Kale is incredibly nutrient-dense, providing an abundance of vitamins, minerals, antioxidants, and fiber. These qualities make kale a valuable addition to a fitness diet.",
+    "calories": 10.0,
+    "proteins": 0.9,
+    "carbs": 1.3,
+    "fat": 0.4,
+    "image": "foods_pictures/kale.png",
+    "created_at": "2023-05-12T00:31:09.042Z",
+    "updated_at": "2023-05-12T00:31:09.043Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 18,
+  "fields": {
+    "name": "Apple 1 medium",
+    "description": "Apples are a popular fruit that can be a great addition to a fitness diet. They are low in calories, high in fiber, and contain many vitamins and minerals.",
+    "calories": 104.0,
+    "proteins": 0.5,
+    "carbs": 27.6,
+    "fat": 0.3,
+    "image": "foods_pictures/apple.png",
+    "created_at": "2023-05-12T00:38:08.450Z",
+    "updated_at": "2023-05-12T00:38:08.450Z",
+    "categories": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 19,
+  "fields": {
+    "name": "Cottage Cheese 50g",
+    "description": "Cottage cheese is known for its high protein content, making it an excellent choice for individuals looking to increase their protein intake.",
+    "calories": 49.0,
+    "proteins": 5.6,
+    "carbs": 1.7,
+    "fat": 2.2,
+    "image": "foods_pictures/cottage-cheese.png",
+    "created_at": "2023-05-12T00:47:22.543Z",
+    "updated_at": "2023-05-12T00:47:22.543Z",
+    "categories": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 20,
+  "fields": {
+    "name": "Olive oil 15ml",
+    "description": "Including olive oil  in your meals can enhance the absorption of fat-soluble vitamins (A, D, E, and K) present in other foods. These vitamins play essential roles in various bodily functions, including immune fun.",
+    "calories": 121.0,
+    "proteins": 0.0,
+    "carbs": 0.0,
+    "fat": 13.7,
+    "image": "foods_pictures/olive-oil.png",
+    "created_at": "2023-05-12T00:59:09.732Z",
+    "updated_at": "2023-05-12T01:00:04.454Z",
+    "categories": [
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 21,
+  "fields": {
+    "name": "Lentils plate 100g",
+    "description": "Lentils are packed with essential nutrients, including iron, potassium, magnesium, folate, and B vitamins. Iron is particularly important for athletes and active individuals as it is involved in oxygen transport and energy production.",
+    "calories": 240.0,
+    "proteins": 18.0,
+    "carbs": 38.0,
+    "fat": 2.0,
+    "image": "foods_pictures/lentils-plate.png",
+    "created_at": "2023-05-12T01:12:40.431Z",
+    "updated_at": "2023-05-12T01:12:40.431Z",
+    "categories": [
+      3,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 22,
+  "fields": {
+    "name": "Dark chocolate 20g",
+    "description": "It is high in antioxidants, particularly flavonoids, which can help reduce inflammation and lower the risk of heart disease. Additionally, dark chocolate contains iron, magnesium, and other minerals that are important for maintaining overall health.",
+    "calories": 122.0,
+    "proteins": 1.8,
+    "carbs": 4.5,
+    "fat": 10.2,
+    "image": "foods_pictures/dark-chocolate.png",
+    "created_at": "2023-05-12T01:31:22.961Z",
+    "updated_at": "2023-05-12T01:31:22.961Z",
+    "categories": [
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 23,
+  "fields": {
+    "name": "Spinach 3 leafs",
+    "description": "Spinach is rich in plant-based iron, which plays a crucial role in transporting oxygen throughout the body. Sufficient iron intake supports optimal oxygenation of muscles, aiding in their recovery and performance during exercise.",
+    "calories": 7.0,
+    "proteins": 0.9,
+    "carbs": 1.1,
+    "fat": 0.1,
+    "image": "foods_pictures/spinach.png",
+    "created_at": "2023-05-12T01:36:37.907Z",
+    "updated_at": "2023-05-12T01:36:37.907Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 24,
+  "fields": {
+    "name": "Lemon 20g",
+    "description": "Lemons are a popular citrus fruit often consumed in fitness due to their low calorie and high nutrient content. They are rich in vitamin C, which helps to boost the immune system and reduce inflammation.",
+    "calories": 10.0,
+    "proteins": 0.0,
+    "carbs": 0.0,
+    "fat": 0.0,
+    "image": "foods_pictures/lemon.png",
+    "created_at": "2023-05-12T01:42:34.244Z",
+    "updated_at": "2023-05-12T01:42:34.245Z",
+    "categories": [
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 25,
+  "fields": {
+    "name": "Carrot 30g",
+    "description": "Carrots are packed with essential nutrients, including vitamins A, C, and K, as well as potassium and fiber. These nutrients support overall health, immune function, and provide numerous benefits for fitness enthusiasts.",
+    "calories": 12.0,
+    "proteins": 0.3,
+    "carbs": 2.9,
+    "fat": 0.1,
+    "image": "foods_pictures/carrot.png",
+    "created_at": "2023-05-12T01:47:05.701Z",
+    "updated_at": "2023-05-12T01:47:05.701Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 26,
+  "fields": {
+    "name": "Mushrooms 100g",
+    "description": "Including mushrooms in your fitness diet can provide a range of nutrients and potential health benefits. They offer a low-calorie option with fiber, vitamins, minerals, and antioxidants.",
+    "calories": 33.0,
+    "proteins": 2.2,
+    "carbs": 5.0,
+    "fat": 0.5,
+    "image": "foods_pictures/mushroom.png",
+    "created_at": "2023-05-12T01:53:36.948Z",
+    "updated_at": "2023-05-12T19:56:55.563Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 27,
+  "fields": {
+    "name": "Mayonnaise 1 tablespoon",
+    "description": "Mayonnaise is calorie-dense and high in fat. The majority of the fat in mayonnaise comes from oil, which provides a concentrated source of energy.",
+    "calories": 90.0,
+    "proteins": 0.0,
+    "carbs": 0.0,
+    "fat": 10.0,
+    "image": "foods_pictures/mayonnaise_.png",
+    "created_at": "2023-05-12T01:59:01.265Z",
+    "updated_at": "2023-05-12T01:59:01.265Z",
+    "categories": [
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 28,
+  "fields": {
+    "name": "Grilled sirloin steak 100g",
+    "description": "Sirloin steak is a rich source of high-quality protein, which is essential for muscle growth, repair, and maintenance. Protein helps support muscle recovery after workouts and provides a feeling of satiety.",
+    "calories": 165.0,
+    "proteins": 31.0,
+    "carbs": 0.0,
+    "fat": 4.7,
+    "image": "foods_pictures/sirloin.png",
+    "created_at": "2023-05-12T02:08:24.953Z",
+    "updated_at": "2023-05-12T02:08:24.953Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 29,
+  "fields": {
+    "name": "Blueberries 1cup",
+    "description": "Blueberries may help reduce muscle soreness and aid in exercise recovery. The antioxidants and anti-inflammatory properties of blueberries may contribute to these potential benefits.",
+    "calories": 42.0,
+    "proteins": 0.5,
+    "carbs": 10.7,
+    "fat": 0.2,
+    "image": "foods_pictures/blueberries.png",
+    "created_at": "2023-05-12T19:29:13.541Z",
+    "updated_at": "2023-05-12T19:34:17.763Z",
+    "categories": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 30,
+  "fields": {
+    "name": "Tomato 1 medium",
+    "description": "Tomatoes are a rich source of essential vitamins and minerals. They are particularly high in vitamin C, which supports immune function, and vitamin A, which is important for vision and skin health.",
+    "calories": 22.0,
+    "proteins": 1.1,
+    "carbs": 4.8,
+    "fat": 0.2,
+    "image": "foods_pictures/tomato.png",
+    "created_at": "2023-05-12T19:34:07.174Z",
+    "updated_at": "2023-05-12T19:35:17.097Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 31,
+  "fields": {
+    "name": "Turkey ham 60g",
+    "description": "Turkey ham is primarily composed of turkey meat, which is known for being a lean source of protein. Protein is essential for muscle repair, recovery, and maintenance.",
+    "calories": 74.0,
+    "proteins": 11.8,
+    "carbs": 1.8,
+    "fat": 2.3,
+    "image": "foods_pictures/turkey-ham.png",
+    "created_at": "2023-05-12T19:44:58.168Z",
+    "updated_at": "2023-05-12T19:44:58.168Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 32,
+  "fields": {
+    "name": "Ground beef 100g",
+    "description": "Ground beef is a rich source of high-quality protein, which is essential for muscle growth, repair, and maintenance.",
+    "calories": 276.0,
+    "proteins": 25.4,
+    "carbs": 0.0,
+    "fat": 18.6,
+    "image": "foods_pictures/ground-beef.png",
+    "created_at": "2023-05-12T19:54:40.313Z",
+    "updated_at": "2023-05-12T19:54:40.313Z",
+    "categories": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 33,
+  "fields": {
+    "name": "Natural pumpkin seeds 50g",
+    "description": "Pumpkin seeds are an excellent plant-based source of protein. They provide all the essential amino acids needed for muscle growth, repair, and maintenance.",
+    "calories": 223.0,
+    "proteins": 9.3,
+    "carbs": 26.9,
+    "fat": 9.7,
+    "image": "foods_pictures/pumpkin-seeds.png",
+    "created_at": "2023-05-12T20:03:20.879Z",
+    "updated_at": "2023-05-12T20:03:20.879Z",
+    "categories": [
+      4,
+      5,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 34,
+  "fields": {
+    "name": "Corn tortilla 1 unit",
+    "description": "Corn tortillas provide essential nutrients such as carbohydrates for energy, B-vitamins (thiamin, niacin, and folate) for metabolism, and minerals like magnesium and phosphorus.",
+    "calories": 50.0,
+    "proteins": 1.0,
+    "carbs": 10.0,
+    "fat": 0.5,
+    "image": "foods_pictures/tortilla_eb1v0JN.png",
+    "created_at": "2023-05-12T20:09:56.798Z",
+    "updated_at": "2023-05-12T20:12:04.524Z",
+    "categories": [
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 35,
+  "fields": {
+    "name": "Fried eggs 1 unit",
+    "description": "Eggs are an excellent source of high-quality protein, containing all the essential amino acids your body needs.",
+    "calories": 78.0,
+    "proteins": 5.4,
+    "carbs": 0.3,
+    "fat": 5.9,
+    "image": "foods_pictures/fried-egg.png",
+    "created_at": "2023-05-12T20:32:42.038Z",
+    "updated_at": "2023-05-12T20:32:42.038Z",
+    "categories": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 36,
+  "fields": {
+    "name": "Peanut butter 30g",
+    "description": "Peanut butter is packed with essential nutrients that can support a healthy and active lifestyle. It is a good source of plant-based protein, healthy fats, and dietary fiber.",
+    "calories": 179.0,
+    "proteins": 6.7,
+    "carbs": 6.7,
+    "fat": 15.3,
+    "image": "foods_pictures/peanut-butter.png",
+    "created_at": "2023-05-12T20:38:18.470Z",
+    "updated_at": "2023-05-12T20:38:18.470Z",
+    "categories": [
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 37,
+  "fields": {
+    "name": "Bacon 60g",
+    "description": "When incorporating bacon into a fitness diet, it's crucial to practice portion control. Limiting the amount of bacon consumed and pairing it with nutrient-dense foods, such as vegetables or whole grains, can help balance out the overall meal.",
+    "calories": 150.0,
+    "proteins": 8.6,
+    "carbs": 5.4,
+    "fat": 10.2,
+    "image": "foods_pictures/bacon.png",
+    "created_at": "2023-05-12T20:44:56.634Z",
+    "updated_at": "2023-05-12T20:44:56.634Z",
+    "categories": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 38,
+  "fields": {
+    "name": "Grapes 1 cup",
+    "description": "Grapes are a natural source of carbohydrates, primarily in the form of simple sugars like glucose and fructose. These sugars provide quick energy, making grapes a convenient and natural snack option to fuel your workouts.",
+    "calories": 104.0,
+    "proteins": 1.1,
+    "carbs": 27.2,
+    "fat": 0.2,
+    "image": "foods_pictures/grapes.png",
+    "created_at": "2023-05-12T20:55:52.443Z",
+    "updated_at": "2023-05-12T20:55:52.443Z",
+    "categories": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 39,
+  "fields": {
+    "name": "American cheese 1 slice",
+    "description": "American cheese does provide some nutritional benefits. It is a source of calcium, which is essential for maintaining strong bones and teeth. It also contains protein, which is important for muscle repair and growth.",
+    "calories": 77.0,
+    "proteins": 3.8,
+    "carbs": 1.0,
+    "fat": 6.4,
+    "image": "foods_pictures/american-cheese.png",
+    "created_at": "2023-05-12T21:01:42.140Z",
+    "updated_at": "2023-05-12T21:01:42.140Z",
+    "categories": [
+      7,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 40,
+  "fields": {
+    "name": "Glass of milk 200ml",
+    "description": "Milk naturally contains lactose, a type of carbohydrate that provides energy for physical activity. The carbohydrates in milk can be beneficial before or after exercise to replenish glycogen stores and support recovery.",
+    "calories": 130.0,
+    "proteins": 6.0,
+    "carbs": 10.0,
+    "fat": 7.0,
+    "image": "foods_pictures/glass-of-milk.png",
+    "created_at": "2023-05-12T21:18:11.590Z",
+    "updated_at": "2023-05-12T21:18:11.590Z",
+    "categories": [
+      3,
+      4,
+      5,
+      7,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 41,
+  "fields": {
+    "name": "Lettuce 40g",
+    "description": "Lettuce is low in calories, making it an excellent choice for those seeking to manage their calorie intake while still enjoying a satisfying volume of food.",
+    "calories": 6.0,
+    "proteins": 0.5,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "image": "foods_pictures/lettuce.png",
+    "created_at": "2023-05-12T21:29:57.475Z",
+    "updated_at": "2023-05-12T21:29:57.475Z",
+    "categories": [
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 42,
+  "fields": {
+    "name": "Black beans 1 cup",
+    "description": "Black beans are an excellent plant-based source of protein, making them beneficial for vegetarians, vegans, and those looking to increase their protein intake. Protein is essential for muscle repair, growth, and recovery after exercise.",
+    "calories": 220.0,
+    "proteins": 14.0,
+    "carbs": 38.0,
+    "fat": 2.0,
+    "image": "foods_pictures/balck-beans.png",
+    "created_at": "2023-05-12T21:42:08.187Z",
+    "updated_at": "2023-05-12T21:42:08.187Z",
+    "categories": [
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 43,
+  "fields": {
+    "name": "Whole wheat bread 1 slice",
+    "description": "Whole wheat bread is a source of complex carbohydrates, which are broken down more slowly by the body compared to simple carbohydrates. This slower digestion provides a steady release of energy.",
+    "calories": 91.0,
+    "proteins": 4.4,
+    "carbs": 15.5,
+    "fat": 1.3,
+    "image": "foods_pictures/whole-wheat-bread.png",
+    "created_at": "2023-05-12T21:47:45.044Z",
+    "updated_at": "2023-05-12T21:47:45.045Z",
+    "categories": [
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 44,
+  "fields": {
+    "name": "Sweet potato 100g",
+    "description": "Sweet potatoes are a rich source of complex carbohydrates, which are the primary source of energy for your body. The complex carbohydrates in sweet potatoes are digested more slowly than simple carbohydrates.",
+    "calories": 111.0,
+    "proteins": 1.6,
+    "carbs": 20.0,
+    "fat": 0.2,
+    "image": "foods_pictures/sweet-potato.png",
+    "created_at": "2023-05-12T21:54:03.612Z",
+    "updated_at": "2023-05-12T21:54:03.612Z",
+    "categories": [
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 45,
+  "fields": {
+    "name": "Watermelon 100g",
+    "description": "Watermelon is relatively low in calories while providing a satisfying sweetness. This makes it a refreshing choice for those watching their calorie intake or looking to maintain a healthy weight.",
+    "calories": 30.0,
+    "proteins": 0.6,
+    "carbs": 7.1,
+    "fat": 0.2,
+    "image": "foods_pictures/watermelon.png",
+    "created_at": "2023-05-12T22:02:04.067Z",
+    "updated_at": "2023-05-12T22:02:04.067Z",
+    "categories": [
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 46,
+  "fields": {
+    "name": "Chia seeds 50g",
+    "description": "Despite their small size, chia seeds are packed with important nutrients. They are an excellent source of fiber, protein, healthy fats (particularly omega-3 fatty acids), vitamins, minerals, and antioxidants.",
+    "calories": 230.0,
+    "proteins": 10.0,
+    "carbs": 21.0,
+    "fat": 17.5,
+    "image": "foods_pictures/chia-seeds.png",
+    "created_at": "2023-05-12T22:06:34.116Z",
+    "updated_at": "2023-05-12T22:06:34.116Z",
+    "categories": [
+      3,
+      4,
+      5,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 47,
+  "fields": {
+    "name": "Nuts 20g",
+    "description": "Nuts are packed with essential nutrients, including healthy fats, protein, fiber, vitamins, minerals, and antioxidants. These nutrients play a crucial role in supporting overall health, energy production, muscle recovery, and immune function.",
+    "calories": 140.0,
+    "proteins": 3.0,
+    "carbs": 2.8,
+    "fat": 13.0,
+    "image": "foods_pictures/nuts.png",
+    "created_at": "2023-05-12T22:29:51.342Z",
+    "updated_at": "2023-05-12T22:29:51.342Z",
+    "categories": [
+      4,
+      9
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 48,
+  "fields": {
+    "name": "Mango 90g",
+    "description": "Mango is a naturally sweet fruit that can provide a quick and energizing snack. It contains natural sugars, along with fiber, which helps regulate blood sugar levels and provides sustained energy for physical activities.",
+    "calories": 54.0,
+    "proteins": 0.7,
+    "carbs": 13.5,
+    "fat": 0.3,
+    "image": "foods_pictures/mango.png",
+    "created_at": "2023-05-12T22:38:44.542Z",
+    "updated_at": "2023-05-12T22:38:44.543Z",
+    "categories": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 49,
+  "fields": {
+    "name": "Boiled shrimp 1 cup",
+    "description": "Shrimp is an excellent source of high-quality protein, which is essential for muscle repair, growth, and overall recovery after exercise.",
+    "calories": 209.0,
+    "proteins": 40.0,
+    "carbs": 1.8,
+    "fat": 3.4,
+    "image": "foods_pictures/boiled-shrimp.png",
+    "created_at": "2023-05-12T22:44:20.659Z",
+    "updated_at": "2023-05-12T22:44:20.659Z",
+    "categories": [
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "foods.food",
+  "pk": 50,
+  "fields": {
+    "name": "Cucumber 100g",
+    "description": "Cucumber is very low in calories, making it a great option for those aiming to manage their calorie intake while still enjoying a nutrient-rich food.",
+    "calories": 16.0,
+    "proteins": 0.6,
+    "carbs": 2.2,
+    "fat": 0.2,
+    "image": "foods_pictures/cucumber.png",
+    "created_at": "2023-05-12T22:49:46.806Z",
+    "updated_at": "2023-05-12T22:49:46.806Z",
+    "categories": [
+      4,
+      6
+    ]
+  }
+}
+]
